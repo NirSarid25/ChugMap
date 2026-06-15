@@ -10,6 +10,12 @@
 /* ── Map: prevent overscroll/rubber-band bleed-through on iOS ── */
 .leaflet-container {
   overscroll-behavior: none;
+  cursor: default !important;
+}
+
+/* Keep grabbing cursor while actively dragging the map */
+.leaflet-dragging .leaflet-container {
+  cursor: grabbing !important;
 }
 
 /* ── Safe-area padding so controls clear iPhone home bar ─────── */

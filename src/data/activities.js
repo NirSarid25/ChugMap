@@ -12,29 +12,22 @@ export const activities = [
       he: "אימון כדורגל",
       ru: "Тренировки по футболу",
     },
-    neighborhood: {
-      en: "HaYarkon Park",
-      he: "פארק הירקון",
-      ru: "Парк Яркон",
-    },
+    neighborhood: { en: "HaYarkon Park", he: "פארק הירקון", ru: "Парк Яркон" },
     location: {
       en: "Tel Aviv · HaYarkon Park",
       he: "תל אביב · פארק הירקון",
       ru: "Тель-Авив · Парк Яркон",
     },
-
     price: 280,
-    instructor: { name: "Alex Petrov",    languages: ["ru", "en", "he"] },
+    instructor: { name: "Alex Petrov", languages: ["ru", "en", "he"] },
     ageRange:  { en: "Ages 7–12",  he: "גילאי 7–12",  ru: "Возраст 7–12"  },
     schedule:  { en: "Mon & Wed, 16:00–17:30", he: "ב׳ ורביעי, 16:00–17:30", ru: "Пн и Ср, 16:00–17:30" },
-    phone:     "+972523456789",
-    whatsapp:  "972523456789",
-
+    phone:    "+972523456789",
+    whatsapp: "972523456789",
     immigrantRating:    5,
     hebrewLevel:        "beginner",
     registrationStatus: "open",
-
-    coords: [32.1025, 34.7805], // HaYarkon Park, north Tel Aviv
+    coords: [32.1025, 34.7805],
   },
 
   {
@@ -48,29 +41,22 @@ export const activities = [
       he: "סטודיו אמנות יצירתית",
       ru: "Творческая арт-студия",
     },
-    neighborhood: {
-      en: "Florentin",
-      he: "פלורנטין",
-      ru: "Флорентин",
-    },
+    neighborhood: { en: "Florentin", he: "פלורנטין", ru: "Флорентин" },
     location: {
       en: "Tel Aviv · Florentin",
       he: "תל אביב · פלורנטין",
       ru: "Тель-Авив · Флорентин",
     },
-
     price: 350,
-    instructor: { name: "Maya Cohen",     languages: ["he", "en"] },
+    instructor: { name: "Maya Cohen", languages: ["he", "en"] },
     ageRange:  { en: "Ages 5–10",  he: "גילאי 5–10",  ru: "Возраст 5–10"  },
     schedule:  { en: "Sun & Tue, 15:30–17:00", he: "א׳ וג׳, 15:30–17:00", ru: "Вс и Вт, 15:30–17:00" },
-    phone:     "+972501234567",
-    whatsapp:  "972501234567",
-
+    phone:    "+972501234567",
+    whatsapp: "972501234567",
     immigrantRating:    4.5,
     hebrewLevel:        "beginner",
     registrationStatus: "open",
-
-    coords: [32.0532, 34.7734], // Florentin, south Tel Aviv
+    coords: [32.0532, 34.7734],
   },
 
   {
@@ -84,29 +70,22 @@ export const activities = [
       he: "צופים – שבט דיזנגוף",
       ru: "Цофим – отряд Дизенгоф",
     },
-    neighborhood: {
-      en: "Dizengoff",
-      he: "דיזנגוף",
-      ru: "Дизенгоф",
-    },
+    neighborhood: { en: "Dizengoff", he: "דיזנגוף", ru: "Дизенгоф" },
     location: {
       en: "Tel Aviv · Dizengoff",
       he: "תל אביב · דיזנגוף",
       ru: "Тель-Авив · Дизенгоф",
     },
-
     price: 180,
-    instructor: { name: "Noa Levi",       languages: ["he"] },
+    instructor: { name: "Noa Levi", languages: ["he"] },
     ageRange:  { en: "Ages 8–14",  he: "גילאי 8–14",  ru: "Возраст 8–14"  },
     schedule:  { en: "Fri, 09:00–12:00", he: "שישי, 09:00–12:00", ru: "Пт, 09:00–12:00" },
-    phone:     "+972504567890",
-    whatsapp:  "972504567890",
-
+    phone:    "+972504567890",
+    whatsapp: "972504567890",
     immigrantRating:    2.5,
     hebrewLevel:        "advanced",
     registrationStatus: "open",
-
-    coords: [32.0803, 34.7742], // Dizengoff area, central Tel Aviv
+    coords: [32.0803, 34.7742],
   },
 
   {
@@ -120,29 +99,22 @@ export const activities = [
       he: "פסנתר ומוזיקה קלאסית",
       ru: "Фортепиано и классическая музыка",
     },
-    neighborhood: {
-      en: "Lev HaIr",
-      he: "לב העיר",
-      ru: "Лев ха-Ир",
-    },
+    neighborhood: { en: "Lev HaIr", he: "לב העיר", ru: "Лев ха-Ир" },
     location: {
       en: "Tel Aviv · Lev HaIr",
       he: "תל אביב · לב העיר",
       ru: "Тель-Авив · Лев ха-Ир",
     },
-
     price: 420,
-    instructor: { name: "Dmitri Volkov",  languages: ["ru", "he", "en"] },
+    instructor: { name: "Dmitri Volkov", languages: ["ru", "he", "en"] },
     ageRange:  { en: "Ages 7–16",  he: "גילאי 7–16",  ru: "Возраст 7–16"  },
     schedule:  { en: "Wed & Fri, 15:00–16:00", he: "ד׳ וו׳, 15:00–16:00", ru: "Ср и Пт, 15:00–16:00" },
-    phone:     "+972541112233",
-    whatsapp:  "972541112233",
-
+    phone:    "+972541112233",
+    whatsapp: "972541112233",
     immigrantRating:    4,
     hebrewLevel:        "beginner",
     registrationStatus: "open",
-
-    coords: [32.0726, 34.7748], // Lev HaIr, central Tel Aviv
+    coords: [32.0726, 34.7748],
   },
 
   {
@@ -156,29 +128,22 @@ export const activities = [
       he: "אקדמיית כדורסל",
       ru: "Академия баскетбола",
     },
-    neighborhood: {
-      en: "Ramat Gan",
-      he: "רמת גן",
-      ru: "Рамат-Ган",
-    },
+    neighborhood: { en: "Ramat Gan", he: "רמת גן", ru: "Рамат-Ган" },
     location: {
       en: "Ramat Gan · City Center",
       he: "רמת גן · מרכז העיר",
       ru: "Рамат-Ган · Центр города",
     },
-
     price: 320,
-    instructor: { name: "Idan Shapiro",   languages: ["he", "en"] },
+    instructor: { name: "Idan Shapiro", languages: ["he", "en"] },
     ageRange:  { en: "Ages 10–16", he: "גילאי 10–16", ru: "Возраст 10–16" },
     schedule:  { en: "Mon, Wed & Thu, 17:00–19:00", he: "ב׳, ד׳ וה׳, 17:00–19:00", ru: "Пн, Ср и Чт, 17:00–19:00" },
-    phone:     "+972527654321",
-    whatsapp:  "972527654321",
-
+    phone:    "+972527654321",
+    whatsapp: "972527654321",
     immigrantRating:    3.5,
     hebrewLevel:        "intermediate",
     registrationStatus: "open",
-
-    coords: [32.0832, 34.8090], // Ramat Gan center
+    coords: [32.0832, 34.8090],
   },
 
   {
@@ -192,29 +157,22 @@ export const activities = [
       he: "מחול ותנועה",
       ru: "Танец и движение",
     },
-    neighborhood: {
-      en: "Neve Tzedek",
-      he: "נווה צדק",
-      ru: "Неве-Цедек",
-    },
+    neighborhood: { en: "Neve Tzedek", he: "נווה צדק", ru: "Неве-Цедек" },
     location: {
       en: "Tel Aviv · Neve Tzedek",
       he: "תל אביב · נווה צדק",
       ru: "Тель-Авив · Неве-Цедек",
     },
-
     price: 300,
     instructor: { name: "Elena Sorokina", languages: ["ru", "en", "he"] },
-    ageRange:  { en: "Ages 4–8",   he: "גילאי 4–8",   ru: "Возраст 4–8"   },
+    ageRange:  { en: "Ages 4–8",  he: "גילאי 4–8",  ru: "Возраст 4–8"  },
     schedule:  { en: "Sun & Thu, 15:00–16:00", he: "א׳ וה׳, 15:00–16:00", ru: "Вс и Чт, 15:00–16:00" },
-    phone:     "+972509876543",
-    whatsapp:  "972509876543",
-
+    phone:    "+972509876543",
+    whatsapp: "972509876543",
     immigrantRating:    5,
     hebrewLevel:        "beginner",
     registrationStatus: "closed",
-
-    coords: [32.0571, 34.7692], // Neve Tzedek, south-west Tel Aviv
+    coords: [32.0571, 34.7692],
   },
 
   {
@@ -228,29 +186,22 @@ export const activities = [
       he: "הנוער העובד והלומד – סניף פלורנטין",
       ru: "Ха-Ноар ха-Овед – отделение Флорентин",
     },
-    neighborhood: {
-      en: "Florentin",
-      he: "פלורנטין",
-      ru: "Флорентин",
-    },
+    neighborhood: { en: "Florentin", he: "פלורנטין", ru: "Флорентин" },
     location: {
       en: "Tel Aviv · Florentin",
       he: "תל אביב · פלורנטין",
       ru: "Тель-Авив · Флорентин",
     },
-
     price: 160,
-    instructor: { name: "Yael Mizrachi",  languages: ["he"] },
+    instructor: { name: "Yael Mizrachi", languages: ["he"] },
     ageRange:  { en: "Ages 10–18", he: "גילאי 10–18", ru: "Возраст 10–18" },
     schedule:  { en: "Sat, 10:00–13:00 & Wed evenings", he: "שבת 10:00–13:00 וערבי רביעי", ru: "Сб, 10:00–13:00 и ср вечером" },
-    phone:     "+972521234560",
-    whatsapp:  "972521234560",
-
+    phone:    "+972521234560",
+    whatsapp: "972521234560",
     immigrantRating:    2,
     hebrewLevel:        "advanced",
     registrationStatus: "open",
-
-    coords: [32.0518, 34.7722], // Florentin, south Tel Aviv
+    coords: [32.0518, 34.7722],
   },
 
   {
@@ -264,28 +215,313 @@ export const activities = [
       he: "בני עקיבא – רמת אביב א׳",
       ru: "Бней Акива – Рамат-Авив Алеф",
     },
-    neighborhood: {
-      en: "Ramat Aviv",
-      he: "רמת אביב",
-      ru: "Рамат-Авив",
-    },
+    neighborhood: { en: "Ramat Aviv", he: "רמת אביב", ru: "Рамат-Авив" },
     location: {
       en: "Tel Aviv · Ramat Aviv",
       he: "תל אביב · רמת אביב",
       ru: "Тель-Авив · Рамат-Авив",
     },
-
     price: 200,
-    instructor: { name: "Tzvi Goldberg",  languages: ["he", "en"] },
+    instructor: { name: "Tzvi Goldberg", languages: ["he", "en"] },
     ageRange:  { en: "Ages 8–18",  he: "גילאי 8–18",  ru: "Возраст 8–18"  },
     schedule:  { en: "Sat, 09:00–12:30", he: "שבת, 09:00–12:30", ru: "Сб, 09:00–12:30" },
-    phone:     "+972509998877",
-    whatsapp:  "972509998877",
-
+    phone:    "+972509998877",
+    whatsapp: "972509998877",
     immigrantRating:    1.5,
     hebrewLevel:        "advanced",
     registrationStatus: "open",
+    coords: [32.1150, 34.8012],
+  },
 
-    coords: [32.1150, 34.8012], // Ramat Aviv, north Tel Aviv
+  // ── 10 new activities ────────────────────────────────────────────────────
+
+  {
+    id: 9,
+    category: "sport",
+    emoji: "🤸",
+    color: "#E11D48",
+
+    name: {
+      en: "Artistic Gymnastics",
+      he: "התעמלות אמנותית",
+      ru: "Художественная гимнастика",
+    },
+    neighborhood: { en: "Kikar HaMedina", he: "כיכר המדינה", ru: "Кикар ха-Медина" },
+    location: {
+      en: "Tel Aviv · Kikar HaMedina",
+      he: "תל אביב · כיכר המדינה",
+      ru: "Тель-Авив · Кикар ха-Медина",
+    },
+    price: 380,
+    instructor: { name: "Tanya Berkovich", languages: ["ru", "en", "he"] },
+    ageRange:  { en: "Ages 5–12",  he: "גילאי 5–12",  ru: "Возраст 5–12"  },
+    schedule:  { en: "Tue & Thu, 16:00–17:30", he: "ג׳ וה׳, 16:00–17:30", ru: "Вт и Чт, 16:00–17:30" },
+    phone:    "+972521100001",
+    whatsapp: "972521100001",
+    immigrantRating:    5,
+    hebrewLevel:        "beginner",
+    registrationStatus: "open",
+    coords: [32.0872, 34.7778],
+  },
+
+  {
+    id: 10,
+    category: "sport",
+    emoji: "🏊",
+    color: "#0891B2",
+
+    name: {
+      en: "Swimming Academy",
+      he: "אקדמיית שחייה",
+      ru: "Академия плавания",
+    },
+    neighborhood: { en: "Gordon Beach", he: "חוף גורדון", ru: "Пляж Гордон" },
+    location: {
+      en: "Tel Aviv · Gordon Beach",
+      he: "תל אביב · חוף גורדון",
+      ru: "Тель-Авив · Пляж Гордон",
+    },
+    price: 260,
+    instructor: { name: "Moran Ben-David", languages: ["he", "en"] },
+    ageRange:  { en: "Ages 4–14",  he: "גילאי 4–14",  ru: "Возраст 4–14"  },
+    schedule:  { en: "Sun–Thu, 14:00–15:00", he: "א׳–ה׳, 14:00–15:00", ru: "Вс–Чт, 14:00–15:00" },
+    phone:    "+972521100002",
+    whatsapp: "972521100002",
+    immigrantRating:    4,
+    hebrewLevel:        "beginner",
+    registrationStatus: "open",
+    coords: [32.0787, 34.7671],
+  },
+
+  {
+    id: 11,
+    category: "art",
+    emoji: "🎭",
+    color: "#6D28D9",
+
+    name: {
+      en: "Drama & Theater Workshop",
+      he: "סדנת דרמה ותיאטרון",
+      ru: "Мастерская драмы и театра",
+    },
+    neighborhood: { en: "HaBima Square", he: "כיכר הבימה", ru: "Площадь Хабима" },
+    location: {
+      en: "Tel Aviv · HaBima Square",
+      he: "תל אביב · כיכר הבימה",
+      ru: "Тель-Авив · Площадь Хабима",
+    },
+    price: 290,
+    instructor: { name: "Sarah Goldstein", languages: ["he", "en", "ru"] },
+    ageRange:  { en: "Ages 8–16",  he: "גילאי 8–16",  ru: "Возраст 8–16"  },
+    schedule:  { en: "Mon & Thu, 16:30–18:30", he: "ב׳ וה׳, 16:30–18:30", ru: "Пн и Чт, 16:30–18:30" },
+    phone:    "+972521100003",
+    whatsapp: "972521100003",
+    immigrantRating:    3,
+    hebrewLevel:        "intermediate",
+    registrationStatus: "closed",
+    coords: [32.0717, 34.7791],
+  },
+
+  {
+    id: 12,
+    category: "music",
+    emoji: "🎸",
+    color: "#A16207",
+
+    name: {
+      en: "Guitar & Rock Music",
+      he: "גיטרה ומוזיקת רוק",
+      ru: "Гитара и рок-музыка",
+    },
+    neighborhood: { en: "Jaffa Port", he: "נמל יפו", ru: "Порт Яффо" },
+    location: {
+      en: "Jaffa · Jaffa Port",
+      he: "יפו · נמל יפו",
+      ru: "Яффо · Порт Яффо",
+    },
+    price: 340,
+    instructor: { name: "Johnny Kaspi", languages: ["he", "en"] },
+    ageRange:  { en: "Ages 9–16",  he: "גילאי 9–16",  ru: "Возраст 9–16"  },
+    schedule:  { en: "Wed, 15:00–17:00", he: "רביעי, 15:00–17:00", ru: "Ср, 15:00–17:00" },
+    phone:    "+972521100004",
+    whatsapp: "972521100004",
+    immigrantRating:    4,
+    hebrewLevel:        "beginner",
+    registrationStatus: "open",
+    coords: [32.0535, 34.7498],
+  },
+
+  {
+    id: 13,
+    category: "sport",
+    emoji: "🥋",
+    color: "#374151",
+
+    name: {
+      en: "Judo & Martial Arts",
+      he: "ג'ודו ואמנויות לחימה",
+      ru: "Дзюдо и боевые искусства",
+    },
+    neighborhood: { en: "Ramat HaHayal", he: "רמת החייל", ru: "Рамат ха-Хаял" },
+    location: {
+      en: "Tel Aviv · Ramat HaHayal",
+      he: "תל אביב · רמת החייל",
+      ru: "Тель-Авив · Рамат ха-Хаял",
+    },
+    price: 250,
+    instructor: { name: "Kobi Mizrahi", languages: ["he"] },
+    ageRange:  { en: "Ages 6–14",  he: "גילאי 6–14",  ru: "Возраст 6–14"  },
+    schedule:  { en: "Mon, Wed & Fri, 17:00–18:30", he: "ב׳, ד׳ וו׳, 17:00–18:30", ru: "Пн, Ср и Пт, 17:00–18:30" },
+    phone:    "+972521100005",
+    whatsapp: "972521100005",
+    immigrantRating:    2.5,
+    hebrewLevel:        "intermediate",
+    registrationStatus: "open",
+    coords: [32.1078, 34.8178],
+  },
+
+  {
+    id: 14,
+    category: "art",
+    emoji: "🏺",
+    color: "#C2410C",
+
+    name: {
+      en: "Pottery & Ceramics Studio",
+      he: "סטודיו קדרות וקרמיקה",
+      ru: "Студия керамики и гончарства",
+    },
+    neighborhood: { en: "Kerem HaTeimanim", he: "כרם התימנים", ru: "Керем ха-Тейманим" },
+    location: {
+      en: "Tel Aviv · Kerem HaTeimanim",
+      he: "תל אביב · כרם התימנים",
+      ru: "Тель-Авив · Керем ха-Тейманим",
+    },
+    price: 320,
+    instructor: { name: "Liora Ben-Nun", languages: ["he", "en"] },
+    ageRange:  { en: "Ages 6–12",  he: "גילאי 6–12",  ru: "Возраст 6–12"  },
+    schedule:  { en: "Sun & Wed, 15:00–17:00", he: "א׳ ורביעי, 15:00–17:00", ru: "Вс и Ср, 15:00–17:00" },
+    phone:    "+972521100006",
+    whatsapp: "972521100006",
+    immigrantRating:    4.5,
+    hebrewLevel:        "beginner",
+    registrationStatus: "open",
+    coords: [32.0615, 34.7718],
+  },
+
+  {
+    id: 15,
+    category: "dance",
+    emoji: "🩰",
+    color: "#9D174D",
+
+    name: {
+      en: "Classical Ballet Academy",
+      he: "אקדמיית בלט קלאסי",
+      ru: "Академия классического балета",
+    },
+    neighborhood: { en: "Rothschild Blvd", he: "שדרות רוטשילד", ru: "Бульвар Ротшильд" },
+    location: {
+      en: "Tel Aviv · Rothschild Blvd",
+      he: "תל אביב · שדרות רוטשילד",
+      ru: "Тель-Авив · Бульвар Ротшильд",
+    },
+    price: 400,
+    instructor: { name: "Natasha Ivanova", languages: ["ru", "he", "en"] },
+    ageRange:  { en: "Ages 4–12",  he: "גילאי 4–12",  ru: "Возраст 4–12"  },
+    schedule:  { en: "Tue & Fri, 15:30–17:00", he: "ג׳ וו׳, 15:30–17:00", ru: "Вт и Пт, 15:30–17:00" },
+    phone:    "+972521100007",
+    whatsapp: "972521100007",
+    immigrantRating:    5,
+    hebrewLevel:        "beginner",
+    registrationStatus: "open",
+    coords: [32.0633, 34.7741],
+  },
+
+  {
+    id: 16,
+    category: "music",
+    emoji: "🎻",
+    color: "#047857",
+
+    name: {
+      en: "Violin & Chamber Music",
+      he: "כינור ומוזיקת קאמרית",
+      ru: "Скрипка и камерная музыка",
+    },
+    neighborhood: { en: "Old North", he: "צפון ישן", ru: "Старый Север" },
+    location: {
+      en: "Tel Aviv · Old North",
+      he: "תל אביב · צפון ישן",
+      ru: "Тель-Авив · Старый Север",
+    },
+    price: 450,
+    instructor: { name: "Michael Leibowitz", languages: ["ru", "he", "en"] },
+    ageRange:  { en: "Ages 6–14",  he: "גילאי 6–14",  ru: "Возраст 6–14"  },
+    schedule:  { en: "Mon & Thu, 15:00–16:00", he: "ב׳ וה׳, 15:00–16:00", ru: "Пн и Чт, 15:00–16:00" },
+    phone:    "+972521100008",
+    whatsapp: "972521100008",
+    immigrantRating:    5,
+    hebrewLevel:        "beginner",
+    registrationStatus: "closed",
+    coords: [32.0910, 34.7760],
+  },
+
+  {
+    id: 17,
+    category: "sport",
+    emoji: "🏄",
+    color: "#2563EB",
+
+    name: {
+      en: "Surfing School",
+      he: "בית ספר לגלישת גלים",
+      ru: "Школа сёрфинга",
+    },
+    neighborhood: { en: "Hilton Beach", he: "חוף הילטון", ru: "Пляж Хилтон" },
+    location: {
+      en: "Tel Aviv · Hilton Beach",
+      he: "תל אביב · חוף הילטון",
+      ru: "Тель-Авив · Пляж Хилтон",
+    },
+    price: 380,
+    instructor: { name: "Tal Mizrachi", languages: ["he", "en"] },
+    ageRange:  { en: "Ages 8–16",  he: "גילאי 8–16",  ru: "Возраст 8–16"  },
+    schedule:  { en: "Fri & Sat, 08:00–10:00", he: "שישי ושבת, 08:00–10:00", ru: "Пт и Сб, 08:00–10:00" },
+    phone:    "+972521100009",
+    whatsapp: "972521100009",
+    immigrantRating:    3.5,
+    hebrewLevel:        "beginner",
+    registrationStatus: "open",
+    coords: [32.0835, 34.7680],
+  },
+
+  {
+    id: 18,
+    category: "art",
+    emoji: "🎪",
+    color: "#C026D3",
+
+    name: {
+      en: "Circus Arts for Kids",
+      he: "אמנויות קרקס לילדים",
+      ru: "Цирковые искусства для детей",
+    },
+    neighborhood: { en: "Tel Aviv Port", he: "נמל תל אביב", ru: "Порт Тель-Авива" },
+    location: {
+      en: "Tel Aviv · Tel Aviv Port",
+      he: "תל אביב · נמל תל אביב",
+      ru: "Тель-Авив · Порт Тель-Авива",
+    },
+    price: 310,
+    instructor: { name: "Anat Koren", languages: ["he", "en"] },
+    ageRange:  { en: "Ages 5–12",  he: "גילאי 5–12",  ru: "Возраст 5–12"  },
+    schedule:  { en: "Sun, Tue & Thu, 16:00–17:30", he: "א׳, ג׳ וה׳, 16:00–17:30", ru: "Вс, Вт и Чт, 16:00–17:30" },
+    phone:    "+972521100010",
+    whatsapp: "972521100010",
+    immigrantRating:    4.5,
+    hebrewLevel:        "beginner",
+    registrationStatus: "open",
+    coords: [32.0985, 34.7765],
   },
 ]

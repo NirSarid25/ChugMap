@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import StarRating from './StarRating'
 import { getCategoryName, getLanguageNames } from '../i18n/translations'
 
@@ -90,9 +91,9 @@ export default function ActivityModal({ activity, lang, t, onClose }) {
     return () => document.removeEventListener('keydown', onKey)
   }, [onClose])
 
-  return (
+  return createPortal(
     <div
-      className={`fixed inset-0 z-50 flex items-end sm:items-center justify-center ${
+      className={`fixed inset-0 z-[9999] flex items-end sm:items-center justify-center ${
         closing ? 'backdrop-exit' : 'backdrop-enter'
       }`}
       style={{ backgroundColor: 'rgba(0,0,0,0.45)' }}
@@ -211,6 +212,7 @@ export default function ActivityModal({ activity, lang, t, onClose }) {
           </a>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }

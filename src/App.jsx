@@ -17,16 +17,16 @@ export default function App() {
   // h-dvh = dynamic viewport height — correctly excludes iOS Safari's
   // retractable address bar, unlike h-screen (100vh) which over-extends
   return (
-    <div className="h-dvh flex flex-col bg-white">
+    <div className={`h-dvh flex flex-col bg-white transition-[filter] duration-300 ${selected ? 'blur-sm' : ''}`}>
       {/* Header */}
-      <header
-        className="flex items-center justify-between px-5 py-3 bg-white border-b border-gray-100 shadow-sm z-10 flex-shrink-0"
-      >
+      <header className="flex items-center justify-between px-5 py-4 bg-gradient-to-r from-indigo-600 to-violet-600 z-10 flex-shrink-0 shadow-lg">
         <div>
-          <h1 className="text-xl font-bold text-gray-900 tracking-tight">ChugMap</h1>
-          <p className="text-xs text-gray-400 mt-0.5">{t.appTagline}</p>
+          <h1 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
+            📍 ChugMap
+          </h1>
+          <p className="text-xs text-white/70 mt-0.5 font-medium">{t.appTagline}</p>
         </div>
-        <LanguageSwitcher lang={lang} onChange={setLang} />
+        <LanguageSwitcher lang={lang} onChange={setLang} dark />
       </header>
 
       {/* Map */}
