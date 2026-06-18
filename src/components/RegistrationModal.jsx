@@ -43,7 +43,7 @@ function SuccessCard({ t, onClose }) {
   )
 }
 
-export default function RegistrationModal({ activity, lang, t, onClose }) {
+export default function RegistrationModal({ activity, lang, t, onClose, onRegister }) {
   const [closing, setClosing]     = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [form, setForm] = useState({
@@ -73,7 +73,7 @@ export default function RegistrationModal({ activity, lang, t, onClose }) {
     if (!form.childName.trim())  e.childName  = true
     if (!form.parentName.trim()) e.parentName = true
     const age = Number(form.childAge)
-    if (!form.childAge.trim() || isNaN(age) || age < 1 || age > 18) e.childAge = true
+    if (!form.childAge.trim() || isNaN(age) || age < 5 || age > 13) e.childAge = true
     if (!form.email.trim() || !/\S+@\S+\.\S+/.test(form.email))     e.email    = true
     if (!form.phone.trim())      e.phone      = true
     setErrors(e)
@@ -82,7 +82,10 @@ export default function RegistrationModal({ activity, lang, t, onClose }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (validate()) setSubmitted(true)
+    if (validate()) {
+      onRegister?.(form)
+      setSubmitted(true)
+    }
   }
 
   const inputClass = (field) =>
@@ -155,8 +158,8 @@ export default function RegistrationModal({ activity, lang, t, onClose }) {
                 <FormField label={t.childAge} error={errors.childAge} errorMsg={t.invalidAge}>
                   <input
                     type="number"
-                    min="1"
-                    max="18"
+                    min="5"
+                    max="13"
                     value={form.childAge}
                     onChange={set('childAge')}
                     placeholder={t.childAgePlaceholder}

@@ -70,7 +70,7 @@ function HebrewLevelBadge({ level, t }) {
   )
 }
 
-export default function ActivityModal({ activity, lang, t, onClose }) {
+export default function ActivityModal({ activity, lang, t, onClose, registrations = [], onRegister }) {
   const [closing, setClosing]           = useState(false)
   const [registerOpen, setRegisterOpen] = useState(false)
   const isRtl = lang === 'he'
@@ -199,12 +199,26 @@ export default function ActivityModal({ activity, lang, t, onClose }) {
             {/* ── CTA buttons ─────────────────────────────────────────── */}
             <div className="px-6 py-5 space-y-3 border-t border-gray-100 flex-shrink-0 bg-white">
 
-              {/* Primary CTA — Register Now */}
+              {/* Registered children list */}
+              {registrations.length > 0 && (
+                <div className="space-y-2 pb-1">
+                  {registrations.map((reg, i) => (
+                    <div key={i} className="flex items-center gap-2.5 px-3.5 py-2.5 bg-emerald-50 border border-emerald-100 rounded-xl">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0" />
+                      <p className="text-sm font-semibold text-emerald-700">
+                        {t.registeredFor.replace('{name}', reg.childName)}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Primary CTA — Register / Register Another */}
               <button
                 onClick={() => setRegisterOpen(true)}
                 className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold text-sm hover:opacity-90 transition-opacity active:scale-95 shadow-md shadow-indigo-200"
               >
-                ✍️ {t.registerNow}
+                {registrations.length === 0 ? `✍️ ${t.registerNow}` : `➕ ${t.registerAnother}`}
               </button>
 
               {/* Secondary CTAs */}
@@ -238,6 +252,7 @@ export default function ActivityModal({ activity, lang, t, onClose }) {
           lang={lang}
           t={t}
           onClose={() => setRegisterOpen(false)}
+          onRegister={onRegister}
         />
       )}
     </>

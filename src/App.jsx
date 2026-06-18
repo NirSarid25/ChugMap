@@ -6,9 +6,18 @@ import MapView from './components/MapView'
 import LanguageSwitcher from './components/LanguageSwitcher'
 
 export default function App() {
-  const [lang, setLang] = useState('en')
-  const [selected, setSelected] = useState(null)
+  const [lang, setLang]             = useState('en')
+  const [selected, setSelected]     = useState(null)
+  // registrations: { [activityId]: [{ childName, parentName, childAge, email, phone }] }
+  const [registrations, setRegistrations] = useState({})
   const t = translations[lang]
+
+  const handleRegister = (activityId, formData) => {
+    setRegistrations(prev => ({
+      ...prev,
+      [activityId]: [...(prev[activityId] || []), formData],
+    }))
+  }
 
   useEffect(() => {
     document.documentElement.dir = lang === 'he' ? 'rtl' : 'ltr'
@@ -43,6 +52,8 @@ export default function App() {
           lang={lang}
           t={t}
           onClose={() => setSelected(null)}
+          registrations={registrations[selected.id] || []}
+          onRegister={(formData) => handleRegister(selected.id, formData)}
         />
       )}
     </div>
