@@ -46,6 +46,9 @@ export const translations = {
 
     // ── Registration flow ─────────────────────────────────────────
     registerNow:              "Register Now",
+    registerAnother:          "Register Another Child",
+    joinWaitlist:             "Join Waitlist",
+    joinWaitlistAnother:      "Join Waitlist for Another Child",
     registeringFor:           "Registering for",
     childFullName:            "Child's Full Name",
     childFullNamePlaceholder: "e.g. Daniel Cohen",
@@ -62,9 +65,11 @@ export const translations = {
     invalidEmail:             "Please enter a valid email",
     invalidAge:               "Age must be between 5 and 13",
     registeredFor:            "Registered: {name}",
-    registerAnother:          "Register Another Child",
+    waitlistedFor:            "Waitlisted: {name}",
     successTitle:             "You're Registered! 🎉",
     successMessage:           "Payment is made directly at the business location. A representative from our team will contact you shortly.",
+    successTitleWaitlist:     "You're on the Waitlist! 🎉",
+    successMessageWaitlist:   "You have successfully joined the waitlist. A representative from our team will contact you when registration opens again. Thank you.",
     done:                     "Done",
 
     // ── Language display names (for instructor.languages) ─────────
@@ -122,6 +127,9 @@ export const translations = {
 
     // ── Registration flow ─────────────────────────────────────────
     registerNow:              "הרשמה עכשיו",
+    registerAnother:          "רשמו ילד נוסף",
+    joinWaitlist:             "הצטרף לרשימת המתנה",
+    joinWaitlistAnother:      "הוסיפו ילד נוסף לרשימת המתנה",
     registeringFor:           "נרשמים לפעילות",
     childFullName:            "שם מלא של הילד",
     childFullNamePlaceholder: "לדוגמה: דניאל כהן",
@@ -138,9 +146,11 @@ export const translations = {
     invalidEmail:             "כתובת אימייל לא תקינה",
     invalidAge:               "גיל חייב להיות בין 5 ל-13",
     registeredFor:            "רשום עבור {name}",
-    registerAnother:          "רשמו ילד נוסף",
+    waitlistedFor:            "ממתין עבור {name}",
     successTitle:             "נרשמת בהצלחה! 🎉",
     successMessage:           "התשלום בבית העסק, נציג מטעמנו ייצור איתך קשר",
+    successTitleWaitlist:     "נרשמת לרשימת המתנה! 🎉",
+    successMessageWaitlist:   "נכנסת לרשימת המתנה, נציג מאתנו ייצור איתך קשר כשההרשמה תפתח שוב תודה",
     done:                     "סיום",
 
     // ── Language display names ────────────────────────────────────
@@ -198,6 +208,9 @@ export const translations = {
 
     // ── Registration flow ─────────────────────────────────────────
     registerNow:              "Записаться",
+    registerAnother:          "Записать ещё ребёнка",
+    joinWaitlist:             "Встать в лист ожидания",
+    joinWaitlistAnother:      "Добавить ещё ребёнка в лист ожидания",
     registeringFor:           "Запись на",
     childFullName:            "Полное имя ребёнка",
     childFullNamePlaceholder: "напр. Даниил Коэн",
@@ -214,9 +227,11 @@ export const translations = {
     invalidEmail:             "Введите корректный email",
     invalidAge:               "Возраст должен быть от 5 до 13 лет",
     registeredFor:            "Записан: {name}",
-    registerAnother:          "Записать ещё ребёнка",
+    waitlistedFor:            "В ожидании: {name}",
     successTitle:             "Вы зарегистрированы! 🎉",
     successMessage:           "Оплата производится непосредственно в учреждении. Наш представитель свяжется с вами в ближайшее время.",
+    successTitleWaitlist:     "Вы в листе ожидания! 🎉",
+    successMessageWaitlist:   "Вы успешно вошли в лист ожидания. Наш представитель свяжется с вами, когда запись снова откроется. Спасибо.",
     done:                     "Готово",
 
     // ── Language display names ────────────────────────────────────

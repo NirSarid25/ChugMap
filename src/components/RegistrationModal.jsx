@@ -15,14 +15,18 @@ function FormField({ label, error, errorMsg, children }) {
   )
 }
 
-function SuccessCard({ t, onClose }) {
+function SuccessCard({ t, isWaitlist, onClose }) {
   return (
     <div className="success-enter flex flex-col items-center justify-center px-8 py-14 text-center gap-6">
-      <div className="check-pop w-20 h-20 rounded-full bg-emerald-100 flex items-center justify-center">
+      <div
+        className={`check-pop w-20 h-20 rounded-full flex items-center justify-center ${
+          isWaitlist ? 'bg-amber-100' : 'bg-emerald-100'
+        }`}
+      >
         <svg width="38" height="38" viewBox="0 0 38 38" fill="none" aria-hidden="true">
           <path
             d="M9 19L15.5 25.5L29 12"
-            stroke="#059669"
+            stroke={isWaitlist ? '#d97706' : '#059669'}
             strokeWidth="3.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -30,12 +34,20 @@ function SuccessCard({ t, onClose }) {
         </svg>
       </div>
       <div className="space-y-3 max-w-xs">
-        <h3 className="text-xl font-bold text-gray-900">{t.successTitle}</h3>
-        <p className="text-sm text-gray-500 leading-relaxed">{t.successMessage}</p>
+        <h3 className="text-xl font-bold text-gray-900">
+          {isWaitlist ? t.successTitleWaitlist : t.successTitle}
+        </h3>
+        <p className="text-sm text-gray-500 leading-relaxed">
+          {isWaitlist ? t.successMessageWaitlist : t.successMessage}
+        </p>
       </div>
       <button
         onClick={onClose}
-        className="mt-1 px-10 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold text-sm hover:opacity-90 transition-opacity active:scale-95 shadow-md shadow-indigo-200"
+        className={`mt-1 px-10 py-3.5 rounded-2xl text-white font-bold text-sm hover:opacity-90 transition-opacity active:scale-95 shadow-md ${
+          isWaitlist
+            ? 'bg-gradient-to-r from-amber-500 to-orange-500 shadow-amber-200'
+            : 'bg-gradient-to-r from-indigo-600 to-violet-600 shadow-indigo-200'
+        }`}
       >
         {t.done}
       </button>
@@ -43,7 +55,7 @@ function SuccessCard({ t, onClose }) {
   )
 }
 
-export default function RegistrationModal({ activity, lang, t, onClose, onRegister }) {
+export default function RegistrationModal({ activity, lang, t, isWaitlist = false, onClose, onRegister }) {
   const [closing, setClosing]     = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [form, setForm] = useState({
@@ -109,7 +121,7 @@ export default function RegistrationModal({ activity, lang, t, onClose, onRegist
         onClick={e => e.stopPropagation()}
       >
         {submitted ? (
-          <SuccessCard t={t} onClose={handleClose} />
+          <SuccessCard t={t} isWaitlist={isWaitlist} onClose={handleClose} />
         ) : (
           <>
             {/* ── Header ──────────────────────────────────────── */}

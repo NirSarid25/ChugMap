@@ -73,7 +73,8 @@ function HebrewLevelBadge({ level, t }) {
 export default function ActivityModal({ activity, lang, t, onClose, registrations = [], onRegister }) {
   const [closing, setClosing]           = useState(false)
   const [registerOpen, setRegisterOpen] = useState(false)
-  const isRtl = lang === 'he'
+  const isRtl      = lang === 'he'
+  const isWaitlist = activity.registrationStatus === 'closed'
   const whatsappUrl   = `https://wa.me/${activity.whatsapp}?text=${encodeURIComponent(t.whatsappMessage)}`
   const headerBg      = activity.color + '18'
   const iconBg        = activity.color + '2a'
@@ -199,26 +200,51 @@ export default function ActivityModal({ activity, lang, t, onClose, registration
             {/* ── CTA buttons ─────────────────────────────────────────── */}
             <div className="px-6 py-5 space-y-3 border-t border-gray-100 flex-shrink-0 bg-white">
 
-              {/* Registered children list */}
+              {/* Registered / waitlisted children list */}
               {registrations.length > 0 && (
                 <div className="space-y-2 pb-1">
                   {registrations.map((reg, i) => (
-                    <div key={i} className="flex items-center gap-2.5 px-3.5 py-2.5 bg-emerald-50 border border-emerald-100 rounded-xl">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0" />
-                      <p className="text-sm font-semibold text-emerald-700">
-                        {t.registeredFor.replace('{name}', reg.childName)}
+                    <div
+                      key={i}
+                      className={`flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl border ${
+                        isWaitlist
+                          ? 'bg-amber-50 border-amber-100'
+                          : 'bg-emerald-50 border-emerald-100'
+                      }`}
+                    >
+                      <span
+                        className={`w-2 h-2 rounded-full flex-shrink-0 ${
+                          isWaitlist ? 'bg-amber-400' : 'bg-emerald-400'
+                        }`}
+                      />
+                      <p
+                        className={`text-sm font-semibold ${
+                          isWaitlist ? 'text-amber-700' : 'text-emerald-700'
+                        }`}
+                      >
+                        {isWaitlist
+                          ? t.waitlistedFor.replace('{name}', reg.childName)
+                          : t.registeredFor.replace('{name}', reg.childName)
+                        }
                       </p>
                     </div>
                   ))}
                 </div>
               )}
 
-              {/* Primary CTA — Register / Register Another */}
+              {/* Primary CTA — status-aware button text */}
               <button
                 onClick={() => setRegisterOpen(true)}
-                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold text-sm hover:opacity-90 transition-opacity active:scale-95 shadow-md shadow-indigo-200"
+                className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl text-white font-bold text-sm hover:opacity-90 transition-opacity active:scale-95 shadow-md ${
+                  isWaitlist
+                    ? 'bg-gradient-to-r from-amber-500 to-orange-500 shadow-amber-200'
+                    : 'bg-gradient-to-r from-indigo-600 to-violet-600 shadow-indigo-200'
+                }`}
               >
-                {registrations.length === 0 ? `✍️ ${t.registerNow}` : `➕ ${t.registerAnother}`}
+                {isWaitlist
+                  ? (registrations.length === 0 ? `⏳ ${t.joinWaitlist}` : `➕ ${t.joinWaitlistAnother}`)
+                  : (registrations.length === 0 ? `✍️ ${t.registerNow}` : `➕ ${t.registerAnother}`)
+                }
               </button>
 
               {/* Secondary CTAs */}
@@ -251,6 +277,7 @@ export default function ActivityModal({ activity, lang, t, onClose, registration
           activity={activity}
           lang={lang}
           t={t}
+          isWaitlist={isWaitlist}
           onClose={() => setRegisterOpen(false)}
           onRegister={onRegister}
         />
