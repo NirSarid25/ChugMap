@@ -44,6 +44,27 @@ export const translations = {
     catDance:         "Dance",
     catYouthMovement: "Youth Movement",
 
+    // ── Registration flow ─────────────────────────────────────────
+    registerNow:              "Register Now",
+    registeringFor:           "Registering for",
+    childFullName:            "Child's Full Name",
+    childFullNamePlaceholder: "e.g. Daniel Cohen",
+    parentName:               "Parent's Name",
+    parentNamePlaceholder:    "e.g. Rachel Cohen",
+    childAge:                 "Child's Age",
+    childAgePlaceholder:      "e.g. 8",
+    emailAddress:             "Email Address",
+    emailPlaceholder:         "your@email.com",
+    phoneNumber:              "Phone Number",
+    phonePlaceholder:         "050-000-0000",
+    submitRegistration:       "Submit Registration",
+    required:                 "This field is required",
+    invalidEmail:             "Please enter a valid email",
+    invalidAge:               "Please enter a valid age (1–18)",
+    successTitle:             "You're Registered! 🎉",
+    successMessage:           "Payment is made directly at the business location. A representative from our team will contact you shortly.",
+    done:                     "Done",
+
     // ── Language display names (for instructor.languages) ─────────
     languageNames: {
       en: "English",
@@ -97,6 +118,27 @@ export const translations = {
     catDance:         "מחול",
     catYouthMovement: "תנועת נוער",
 
+    // ── Registration flow ─────────────────────────────────────────
+    registerNow:              "הרשמה עכשיו",
+    registeringFor:           "נרשמים לפעילות",
+    childFullName:            "שם מלא של הילד",
+    childFullNamePlaceholder: "לדוגמה: דניאל כהן",
+    parentName:               "שם ההורה",
+    parentNamePlaceholder:    "לדוגמה: רחל כהן",
+    childAge:                 "גיל הילד",
+    childAgePlaceholder:      "לדוגמה: 8",
+    emailAddress:             "אימייל",
+    emailPlaceholder:         "your@email.com",
+    phoneNumber:              "טלפון",
+    phonePlaceholder:         "050-000-0000",
+    submitRegistration:       "שלח הרשמה",
+    required:                 "שדה חובה",
+    invalidEmail:             "כתובת אימייל לא תקינה",
+    invalidAge:               "גיל לא תקין (1–18)",
+    successTitle:             "נרשמת בהצלחה! 🎉",
+    successMessage:           "התשלום בבית העסק, נציג מטעמנו ייצור איתך קשר",
+    done:                     "סיום",
+
     // ── Language display names ────────────────────────────────────
     languageNames: {
       en: "אנגלית",
@@ -149,6 +191,27 @@ export const translations = {
     catMusic:         "Музыка",
     catDance:         "Танцы",
     catYouthMovement: "Молодёжное движение",
+
+    // ── Registration flow ─────────────────────────────────────────
+    registerNow:              "Записаться",
+    registeringFor:           "Запись на",
+    childFullName:            "Полное имя ребёнка",
+    childFullNamePlaceholder: "напр. Даниил Коэн",
+    parentName:               "Имя родителя",
+    parentNamePlaceholder:    "напр. Рахель Коэн",
+    childAge:                 "Возраст ребёнка",
+    childAgePlaceholder:      "напр. 8",
+    emailAddress:             "Адрес эл. почты",
+    emailPlaceholder:         "your@email.com",
+    phoneNumber:              "Номер телефона",
+    phonePlaceholder:         "050-000-0000",
+    submitRegistration:       "Отправить заявку",
+    required:                 "Обязательное поле",
+    invalidEmail:             "Введите корректный email",
+    invalidAge:               "Введите корректный возраст (1–18)",
+    successTitle:             "Вы зарегистрированы! 🎉",
+    successMessage:           "Оплата производится непосредственно в учреждении. Наш представитель свяжется с вами в ближайшее время.",
+    done:                     "Готово",
 
     // ── Language display names ────────────────────────────────────
     languageNames: {
