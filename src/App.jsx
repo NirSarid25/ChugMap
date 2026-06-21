@@ -87,11 +87,11 @@ export default function App() {
       {/* Always dir=ltr so the toggle order never flips in RTL */}
       <div dir="ltr" className="flex items-center gap-3 px-4 py-2.5 bg-white border-b border-gray-100 flex-shrink-0">
 
-        {/* Map / List pill toggle */}
-        <div className="flex bg-gray-100 rounded-xl p-1 gap-0.5 flex-1">
+        {/* Map / List compact toggle */}
+        <div className="flex bg-gray-100 rounded-xl p-0.5 gap-0.5">
           <button
             onClick={() => setViewMode('map')}
-            className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-bold transition-all ${
+            className={`relative flex items-center gap-1 px-3 py-1.5 rounded-[10px] text-[11px] font-bold transition-all ${
               viewMode === 'map'
                 ? 'bg-white text-indigo-700 shadow-sm'
                 : 'text-gray-500 hover:text-gray-700'
@@ -99,14 +99,14 @@ export default function App() {
           >
             🗺️ {t.mapView}
             {activeFilterCount > 0 && (
-              <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-indigo-100 text-indigo-700 text-[9px] font-bold leading-none">
+              <span className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-indigo-100 text-indigo-700 text-[8px] font-bold leading-none">
                 {filteredActivities.length}
               </span>
             )}
           </button>
           <button
             onClick={() => setViewMode('list')}
-            className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-bold transition-all ${
+            className={`relative flex items-center gap-1 px-3 py-1.5 rounded-[10px] text-[11px] font-bold transition-all ${
               viewMode === 'list'
                 ? 'bg-white text-indigo-700 shadow-sm'
                 : 'text-gray-500 hover:text-gray-700'
@@ -114,7 +114,7 @@ export default function App() {
           >
             ☰ {t.listView}
             {activeFilterCount > 0 && (
-              <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-indigo-100 text-indigo-700 text-[9px] font-bold leading-none">
+              <span className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-indigo-100 text-indigo-700 text-[8px] font-bold leading-none">
                 {filteredActivities.length}
               </span>
             )}

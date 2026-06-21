@@ -19,9 +19,9 @@ function createPinIcon(emoji, color) {
          width="48" height="58" viewBox="0 0 48 58"
          style="overflow:visible">
       <!-- Body -->
-      <rect x="2" y="2" width="44" height="44" rx="13" fill="${color}"/>
+      <rect x="2" y="2" width="44" height="44" rx="20" fill="${color}"/>
       <!-- Inner highlight ring for depth -->
-      <rect x="2" y="2" width="44" height="44" rx="13"
+      <rect x="2" y="2" width="44" height="44" rx="20"
             fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
       <!-- Needle -->
       <path d="M18 46 L24 57 L30 46 Z" fill="${color}"/>
