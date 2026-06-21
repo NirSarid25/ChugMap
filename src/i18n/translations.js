@@ -131,6 +131,10 @@ export const translations = {
     removeConfirmMsg:   "Remove {name}?",
     confirmRemove:      "Remove",
     confirmKeep:        "Keep",
+    editChild:          "Edit",
+    deleteChild:        "Delete",
+    saveEdit:           "Save",
+    cancelEdit:         "Cancel",
 
     // ── Landing page ──────────────────────────────────────────────
     loading:         "Loading...",
@@ -287,6 +291,10 @@ export const translations = {
     removeConfirmMsg:   "להסיר את {name}?",
     confirmRemove:      "הסרה",
     confirmKeep:        "שמור",
+    editChild:          "עריכה",
+    deleteChild:        "מחיקה",
+    saveEdit:           "שמור",
+    cancelEdit:         "ביטול",
 
     // ── Landing page ──────────────────────────────────────────────
     loading:         "טוען...",
@@ -443,6 +451,10 @@ export const translations = {
     removeConfirmMsg:   "Удалить {name}?",
     confirmRemove:      "Удалить",
     confirmKeep:        "Оставить",
+    editChild:          "Изменить",
+    deleteChild:        "Удалить",
+    saveEdit:           "Сохранить",
+    cancelEdit:         "Отмена",
 
     // ── Landing page ──────────────────────────────────────────────
     loading:         "Загрузка...",
@@ -599,6 +611,10 @@ export const translations = {
     removeConfirmMsg:   "Supprimer {name} ?",
     confirmRemove:      "Supprimer",
     confirmKeep:        "Conserver",
+    editChild:          "Modifier",
+    deleteChild:        "Supprimer",
+    saveEdit:           "Enregistrer",
+    cancelEdit:         "Annuler",
 
     // ── Landing page ──────────────────────────────────────────────
     loading:         "Chargement...",

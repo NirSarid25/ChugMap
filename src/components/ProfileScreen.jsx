@@ -10,12 +10,32 @@ function UserAvatar() {
   )
 }
 
-export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRemoveChild }) {
-  const [adding, setAdding]       = useState(false)
-  const [newName, setNewName]     = useState('')
+function PencilIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <path d="M9.5 1.5L12.5 4.5L4.5 12.5H1.5V9.5L9.5 1.5Z"
+            stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
+
+function XIcon() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+      <path d="M1 1L11 11M11 1L1 11" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+    </svg>
+  )
+}
+
+export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRemoveChild, onEditChild }) {
+  const [adding, setAdding]           = useState(false)
+  const [newName, setNewName]         = useState('')
   const [removingIdx, setRemovingIdx] = useState(null)
+  const [editingIdx, setEditingIdx]   = useState(null)
+  const [editName, setEditName]       = useState('')
   const isRtl = lang === 'he'
 
+  // ── Add new child ──────────────────────────────────────────────
   const handleSave = () => {
     const trimmed = newName.trim()
     if (!trimmed) return
@@ -27,6 +47,27 @@ export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRem
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') handleSave()
     if (e.key === 'Escape') { setAdding(false); setNewName('') }
+  }
+
+  // ── Edit existing child ────────────────────────────────────────
+  const startEdit = (i, name) => {
+    setEditingIdx(i)
+    setEditName(name)
+    setRemovingIdx(null)
+    setAdding(false)
+  }
+
+  const handleEditSave = () => {
+    const trimmed = editName.trim()
+    if (!trimmed) return
+    onEditChild(editingIdx, trimmed)
+    setEditingIdx(null)
+    setEditName('')
+  }
+
+  const handleEditKeyDown = (e) => {
+    if (e.key === 'Enter') handleEditSave()
+    if (e.key === 'Escape') { setEditingIdx(null); setEditName('') }
   }
 
   const countLabel = `${childrenList.length} ${t.myChildren.toLowerCase()}`
@@ -60,7 +101,7 @@ export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRem
             <h2 className="font-bold text-gray-900 text-[15px]">{t.myChildren}</h2>
             {!adding && (
               <button
-                onClick={() => { setAdding(true); setRemovingIdx(null) }}
+                onClick={() => { setAdding(true); setRemovingIdx(null); setEditingIdx(null) }}
                 className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-indigo-50 text-indigo-700 text-xs font-bold hover:bg-indigo-100 active:scale-95 transition-all"
               >
                 {t.addChild}
@@ -111,43 +152,82 @@ export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRem
             <ul>
               {childrenList.map((name, i) => (
                 <li key={i} className="border-b border-gray-50 last:border-0">
+
                   {removingIdx === i ? (
-                    /* Inline delete confirmation */
+                    /* ── Delete confirmation ─────────────────── */
                     <div className="flex items-center gap-2 px-4 py-3 bg-red-50">
                       <span className="flex-1 text-xs font-semibold text-red-600 truncate">
                         {t.removeConfirmMsg.replace('{name}', name)}
                       </span>
                       <button
                         onClick={() => setRemovingIdx(null)}
-                        className="flex-shrink-0 px-3 py-1.5 rounded-lg border border-gray-200 bg-white text-gray-600 text-xs font-semibold hover:bg-gray-50"
+                        className="flex-shrink-0 px-3 py-1.5 rounded-lg border border-gray-200 bg-white text-gray-600 text-xs font-semibold hover:bg-gray-50 active:scale-95 transition-all"
                       >
                         {t.confirmKeep}
                       </button>
                       <button
                         onClick={() => { onRemoveChild(i); setRemovingIdx(null) }}
-                        className="flex-shrink-0 px-3 py-1.5 rounded-lg bg-red-500 text-white text-xs font-semibold hover:bg-red-600"
+                        className="flex-shrink-0 px-3 py-1.5 rounded-lg bg-red-500 text-white text-xs font-semibold hover:bg-red-600 active:scale-95 transition-all"
                       >
                         {t.confirmRemove}
                       </button>
                     </div>
+
+                  ) : editingIdx === i ? (
+                    /* ── Inline edit ─────────────────────────── */
+                    <div className="px-4 py-3.5 bg-blue-50/40">
+                      <input
+                        autoFocus
+                        value={editName}
+                        onChange={e => setEditName(e.target.value)}
+                        onKeyDown={handleEditKeyDown}
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-blue-200 bg-white text-sm text-gray-900 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
+                      />
+                      <div className="flex gap-2 mt-2.5">
+                        <button
+                          onClick={() => { setEditingIdx(null); setEditName('') }}
+                          className="flex-1 py-2.5 rounded-xl border border-gray-200 text-gray-600 text-sm font-semibold hover:bg-gray-50 active:scale-95 transition-all"
+                        >
+                          {t.cancelEdit}
+                        </button>
+                        <button
+                          onClick={handleEditSave}
+                          disabled={!editName.trim()}
+                          className="flex-1 py-2.5 rounded-xl bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 active:scale-95 transition-all disabled:opacity-40"
+                        >
+                          {t.saveEdit}
+                        </button>
+                      </div>
+                    </div>
+
                   ) : (
+                    /* ── Default row ─────────────────────────── */
                     <div className="flex items-center gap-3 px-4 py-3">
-                      {/* Avatar initial */}
                       <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
                         <span className="text-sm font-bold text-indigo-700 leading-none">
                           {name.trim()[0]?.toUpperCase() ?? '?'}
                         </span>
                       </div>
                       <span className="flex-1 text-sm font-semibold text-gray-800">{name}</span>
+                      {/* Blue edit pencil */}
                       <button
-                        onClick={() => setRemovingIdx(i)}
-                        className="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 hover:bg-red-50 hover:text-red-500 active:scale-95 transition-all text-[18px] leading-none"
-                        aria-label={t.confirmRemove}
+                        onClick={() => startEdit(i, name)}
+                        className="w-8 h-8 rounded-full flex items-center justify-center text-blue-500 hover:bg-blue-50 active:scale-95 transition-all"
+                        aria-label={t.editChild}
                       >
-                        ×
+                        <PencilIcon />
+                      </button>
+                      {/* Red delete X */}
+                      <button
+                        onClick={() => { setRemovingIdx(i); setEditingIdx(null) }}
+                        className="w-8 h-8 rounded-full flex items-center justify-center text-red-500 hover:bg-red-50 active:scale-95 transition-all"
+                        aria-label={t.deleteChild}
+                      >
+                        <XIcon />
                       </button>
                     </div>
                   )}
+
                 </li>
               ))}
             </ul>

@@ -74,6 +74,7 @@ export default function App() {
   // ── Children handlers ──────────────────────────────────────────
   const handleAddChild    = (name)  => setChildrenList(prev => [...prev, name])
   const handleRemoveChild = (index) => setChildrenList(prev => prev.filter((_, i) => i !== index))
+  const handleEditChild   = (index, newName) => setChildrenList(prev => prev.map((n, i) => i === index ? newName : n))
 
   // ── Centralized filtering (shared by MapView + ListView) ───────
   const filteredActivities = useMemo(() => {
@@ -205,6 +206,7 @@ export default function App() {
           childrenList={childrenList}
           onAddChild={handleAddChild}
           onRemoveChild={handleRemoveChild}
+          onEditChild={handleEditChild}
         />
       )}
 
