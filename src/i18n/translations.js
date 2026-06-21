@@ -72,6 +72,14 @@ export const translations = {
     successMessageWaitlist:   "You have successfully joined the waitlist. A representative from our team will contact you when registration opens again. Thank you.",
     done:                     "Done",
 
+    // ── Child selection in registration form ──────────────────────
+    selectChildren:       "Select Child / Children",
+    alreadyRegistered:    "Already Registered",
+    alreadyOnWaitlist:    "Already on Waitlist",
+    noChildrenProfile:    "No children in your profile yet",
+    noChildrenProfileSub: "Please go to the Profile tab to add your children first.",
+    goToProfile:          "Go to Profile",
+
     // ── View toggle & list view ───────────────────────────────────
     mapView:            "Map View",
     listView:           "List View",
@@ -219,6 +227,14 @@ export const translations = {
     successTitleWaitlist:     "נרשמת לרשימת המתנה! 🎉",
     successMessageWaitlist:   "נכנסת לרשימת המתנה, נציג מאתנו ייצור איתך קשר כשההרשמה תפתח שוב תודה",
     done:                     "סיום",
+
+    // ── Child selection in registration form ──────────────────────
+    selectChildren:       "בחרו ילד/ה",
+    alreadyRegistered:    "כבר רשום/ה",
+    alreadyOnWaitlist:    "כבר ברשימת המתנה",
+    noChildrenProfile:    "לא נוספו ילדים לפרופיל עדיין",
+    noChildrenProfileSub: "עברו לכרטיסיית הפרופיל כדי להוסיף ילדים תחילה.",
+    goToProfile:          "עבור לפרופיל",
 
     // ── View toggle & list view ───────────────────────────────────
     mapView:            "תצוגת מפה",
@@ -368,6 +384,14 @@ export const translations = {
     successMessageWaitlist:   "Вы успешно вошли в лист ожидания. Наш представитель свяжется с вами, когда запись снова откроется. Спасибо.",
     done:                     "Готово",
 
+    // ── Child selection in registration form ──────────────────────
+    selectChildren:       "Выберите ребёнка/детей",
+    alreadyRegistered:    "Уже записан",
+    alreadyOnWaitlist:    "Уже в очереди",
+    noChildrenProfile:    "В профиле нет детей",
+    noChildrenProfileSub: "Перейдите во вкладку Профиль и добавьте детей.",
+    goToProfile:          "Перейти в профиль",
+
     // ── View toggle & list view ───────────────────────────────────
     mapView:            "Карта",
     listView:           "Список",
@@ -515,6 +539,14 @@ export const translations = {
     successTitleWaitlist:     "Vous êtes sur la liste d'attente ! 🎉",
     successMessageWaitlist:   "Vous avez rejoint la liste d'attente avec succès. Un représentant vous contactera dès que les inscriptions seront rouvertes. Merci.",
     done:                     "Terminé",
+
+    // ── Child selection in registration form ──────────────────────
+    selectChildren:       "Sélectionnez un enfant",
+    alreadyRegistered:    "Déjà inscrit(e)",
+    alreadyOnWaitlist:    "Déjà en liste d'attente",
+    noChildrenProfile:    "Aucun enfant dans votre profil",
+    noChildrenProfileSub: "Rendez-vous dans l'onglet Profil pour ajouter vos enfants.",
+    goToProfile:          "Aller au profil",
 
     // ── View toggle & list view ───────────────────────────────────
     mapView:            "Carte",

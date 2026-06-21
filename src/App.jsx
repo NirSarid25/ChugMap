@@ -236,6 +236,8 @@ export default function App() {
           onClose={() => setSelected(null)}
           registrations={registrations[selected.id] || []}
           onRegister={(formData, isWaitlist) => handleRegister(selected.id, formData, isWaitlist)}
+          childrenList={childrenList}
+          onGoToProfile={() => { setSelected(null); setActiveTab('profile') }}
         />
       )}
 
