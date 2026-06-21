@@ -1,5 +1,7 @@
 // instructor.languages is an array of ISO language codes.
 // Resolved to display names via translations.languageNames[code][lang].
+// ageMin/ageMax are numeric bounds used by the filter system.
+// days is an array of short day codes: 'sun'|'mon'|'tue'|'wed'|'thu'|'fri'|'sat'
 export const activities = [
   {
     id: 1,
@@ -27,6 +29,8 @@ export const activities = [
     immigrantRating:    5,
     hebrewLevel:        "beginner",
     registrationStatus: "open",
+    ageMin: 7,  ageMax: 12,
+    days:   ["mon", "wed"],
     coords: [32.1025, 34.7805],
   },
 
@@ -56,6 +60,8 @@ export const activities = [
     immigrantRating:    4.5,
     hebrewLevel:        "beginner",
     registrationStatus: "open",
+    ageMin: 5,  ageMax: 10,
+    days:   ["sun", "tue"],
     coords: [32.0532, 34.7734],
   },
 
@@ -85,6 +91,8 @@ export const activities = [
     immigrantRating:    2.5,
     hebrewLevel:        "advanced",
     registrationStatus: "open",
+    ageMin: 8,  ageMax: 14,
+    days:   ["fri"],
     coords: [32.0803, 34.7742],
   },
 
@@ -114,6 +122,8 @@ export const activities = [
     immigrantRating:    4,
     hebrewLevel:        "beginner",
     registrationStatus: "open",
+    ageMin: 7,  ageMax: 16,
+    days:   ["wed", "fri"],
     coords: [32.0726, 34.7748],
   },
 
@@ -143,6 +153,8 @@ export const activities = [
     immigrantRating:    3.5,
     hebrewLevel:        "intermediate",
     registrationStatus: "open",
+    ageMin: 10, ageMax: 16,
+    days:   ["mon", "wed", "thu"],
     coords: [32.0832, 34.8090],
   },
 
@@ -172,6 +184,8 @@ export const activities = [
     immigrantRating:    5,
     hebrewLevel:        "beginner",
     registrationStatus: "closed",
+    ageMin: 4,  ageMax: 8,
+    days:   ["sun", "thu"],
     coords: [32.0571, 34.7692],
   },
 
@@ -201,6 +215,8 @@ export const activities = [
     immigrantRating:    2,
     hebrewLevel:        "advanced",
     registrationStatus: "open",
+    ageMin: 10, ageMax: 18,
+    days:   ["sat", "wed"],
     coords: [32.0518, 34.7722],
   },
 
@@ -230,6 +246,8 @@ export const activities = [
     immigrantRating:    1.5,
     hebrewLevel:        "advanced",
     registrationStatus: "open",
+    ageMin: 8,  ageMax: 18,
+    days:   ["sat"],
     coords: [32.1150, 34.8012],
   },
 
@@ -261,6 +279,8 @@ export const activities = [
     immigrantRating:    5,
     hebrewLevel:        "beginner",
     registrationStatus: "open",
+    ageMin: 5,  ageMax: 12,
+    days:   ["tue", "thu"],
     coords: [32.0872, 34.7778],
   },
 
@@ -290,6 +310,8 @@ export const activities = [
     immigrantRating:    4,
     hebrewLevel:        "beginner",
     registrationStatus: "open",
+    ageMin: 4,  ageMax: 14,
+    days:   ["sun", "mon", "tue", "wed", "thu"],
     coords: [32.0787, 34.7671],
   },
 
@@ -319,6 +341,8 @@ export const activities = [
     immigrantRating:    3,
     hebrewLevel:        "intermediate",
     registrationStatus: "closed",
+    ageMin: 8,  ageMax: 16,
+    days:   ["mon", "thu"],
     coords: [32.0717, 34.7791],
   },
 
@@ -348,6 +372,8 @@ export const activities = [
     immigrantRating:    4,
     hebrewLevel:        "beginner",
     registrationStatus: "open",
+    ageMin: 9,  ageMax: 16,
+    days:   ["wed"],
     coords: [32.0535, 34.7498],
   },
 
@@ -377,6 +403,8 @@ export const activities = [
     immigrantRating:    2.5,
     hebrewLevel:        "intermediate",
     registrationStatus: "open",
+    ageMin: 6,  ageMax: 14,
+    days:   ["mon", "wed", "fri"],
     coords: [32.1078, 34.8178],
   },
 
@@ -406,6 +434,8 @@ export const activities = [
     immigrantRating:    4.5,
     hebrewLevel:        "beginner",
     registrationStatus: "open",
+    ageMin: 6,  ageMax: 12,
+    days:   ["sun", "wed"],
     coords: [32.0615, 34.7718],
   },
 
@@ -435,6 +465,8 @@ export const activities = [
     immigrantRating:    5,
     hebrewLevel:        "beginner",
     registrationStatus: "open",
+    ageMin: 4,  ageMax: 12,
+    days:   ["tue", "fri"],
     coords: [32.0633, 34.7741],
   },
 
@@ -464,6 +496,8 @@ export const activities = [
     immigrantRating:    5,
     hebrewLevel:        "beginner",
     registrationStatus: "closed",
+    ageMin: 6,  ageMax: 14,
+    days:   ["mon", "thu"],
     coords: [32.0910, 34.7760],
   },
 
@@ -493,6 +527,8 @@ export const activities = [
     immigrantRating:    3.5,
     hebrewLevel:        "beginner",
     registrationStatus: "open",
+    ageMin: 8,  ageMax: 16,
+    days:   ["fri", "sat"],
     coords: [32.0835, 34.7680],
   },
 
@@ -522,6 +558,8 @@ export const activities = [
     immigrantRating:    4.5,
     hebrewLevel:        "beginner",
     registrationStatus: "open",
+    ageMin: 5,  ageMax: 12,
+    days:   ["sun", "tue", "thu"],
     coords: [32.0985, 34.7765],
   },
 ]
