@@ -2,6 +2,7 @@ const LANGUAGES = [
   { code: 'en', label: 'EN', flag: '🇺🇸' },
   { code: 'he', label: 'עב', flag: '🇮🇱' },
   { code: 'ru', label: 'RU', flag: '🇷🇺' },
+  { code: 'fr', label: 'FR', flag: '🇫🇷' },
 ]
 
 export default function LanguageSwitcher({ lang, onChange, dark = false }) {

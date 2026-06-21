@@ -107,6 +107,7 @@ export const translations = {
       en: "English",
       he: "Hebrew",
       ru: "Russian",
+      fr: "French",
     },
   },
 
@@ -218,6 +219,7 @@ export const translations = {
       en: "אנגלית",
       he: "עברית",
       ru: "רוסית",
+      fr: "צרפתית",
     },
   },
 
@@ -329,6 +331,119 @@ export const translations = {
       en: "Английский",
       he: "Иврит",
       ru: "Русский",
+      fr: "Французский",
+    },
+  },
+
+  fr: {
+    // ── App chrome ────────────────────────────────────────────────
+    appTagline: "Trouvez des activités pour vos enfants",
+    tapPin: "Tapez une épingle pour explorer les activités",
+
+    // ── Modal field labels ────────────────────────────────────────
+    price:        "Frais mensuels",
+    perMonth:     "/ mois",
+    location:     "Lieu",
+    ageGroup:     "Groupe d'âge",
+    schedule:     "Horaire",
+    instructor:   "Instructeur",
+    spokenLangs:  "Langues parlées",
+    category:     "Catégorie",
+
+    // ── CTA buttons ───────────────────────────────────────────────
+    call:      "Appeler",
+    whatsapp:  "WhatsApp",
+    whatsappMessage: "Bonjour ! Je suis intéressé(e) par cette activité pour mon enfant.",
+
+    // ── Immigrant Readiness Rating ────────────────────────────────
+    immigrantRating:         "Accueil des immigrants",
+    immigrantRatingSubtitle: "Score validé par la communauté",
+
+    // ── Hebrew Level badge ────────────────────────────────────────
+    hebrewLevel:    "Niveau d'hébreu requis",
+    beginner:       "Adapté aux débutants",
+    beginnerSub:    "L'hébreu n'est pas nécessaire",
+    intermediate:   "Niveau intermédiaire",
+    intermediateSub:"Un peu d'hébreu est utile",
+    advanced:       "Hébreu avancé",
+    advancedSub:    "La maîtrise de l'hébreu est requise",
+
+    // ── Registration Status badge ─────────────────────────────────
+    registrationStatus: "Inscription",
+    open:   "Ouverte",
+    closed: "Fermée",
+
+    // ── Category display names ────────────────────────────────────
+    catSport:         "Sport",
+    catArt:           "Art",
+    catMusic:         "Musique",
+    catDance:         "Danse",
+    catYouthMovement: "Mouvement de jeunesse",
+
+    // ── Registration flow ─────────────────────────────────────────
+    registerNow:              "S'inscrire maintenant",
+    registerAnother:          "Inscrire un autre enfant",
+    joinWaitlist:             "Rejoindre la liste d'attente",
+    joinWaitlistAnother:      "Ajouter un autre enfant à la liste d'attente",
+    registeringFor:           "Inscription pour",
+    childFullName:            "Nom complet de l'enfant",
+    childFullNamePlaceholder: "ex. Daniel Cohen",
+    parentName:               "Nom du parent",
+    parentNamePlaceholder:    "ex. Rachel Cohen",
+    childAge:                 "Âge de l'enfant",
+    childAgePlaceholder:      "ex. 8",
+    emailAddress:             "Adresse e-mail",
+    emailPlaceholder:         "votre@email.com",
+    phoneNumber:              "Numéro de téléphone",
+    phonePlaceholder:         "050-000-0000",
+    submitRegistration:       "Soumettre l'inscription",
+    required:                 "Ce champ est obligatoire",
+    invalidEmail:             "Veuillez saisir un e-mail valide",
+    invalidAge:               "L'âge doit être compris entre 5 et 13 ans",
+    registeredFor:            "Inscrit : {name}",
+    waitlistedFor:            "En attente : {name}",
+    successTitle:             "Vous êtes inscrit(e) ! 🎉",
+    successMessage:           "Le paiement s'effectue directement sur place. Un représentant de notre équipe vous contactera prochainement.",
+    successTitleWaitlist:     "Vous êtes sur la liste d'attente ! 🎉",
+    successMessageWaitlist:   "Vous avez rejoint la liste d'attente avec succès. Un représentant vous contactera dès que les inscriptions seront rouvertes. Merci.",
+    done:                     "Terminé",
+
+    // ── View toggle & list view ───────────────────────────────────
+    mapView:            "Carte",
+    listView:           "Liste",
+    viewDetails:        "Voir les détails",
+    noResults:          "Aucune activité ne correspond à vos filtres",
+    noResultsSub:       "Essayez de modifier ou d'effacer vos filtres",
+    childrenRegistered: "{n} inscrit(s)",
+
+    // ── Filter panel ──────────────────────────────────────────────
+    filter:           "Filtres",
+    applyFilters:     "Appliquer",
+    clearAll:         "Tout effacer",
+    activeFilters:    "{n} actif(s)",
+    filterAge:        "Âge de l'enfant",
+    filterMaxPrice:   "Prix mensuel maximum",
+    filterLanguage:   "Langue de l'instructeur",
+    filterMinRating:  "Note minimale",
+    filterDay:        "Jour de la semaine",
+    anyAge:           "Tout âge",
+    anyPrice:         "Tout prix",
+    anyRating:        "Toute note",
+    starsPlus:        "{n}+ ★",
+    daySun:           "Dim",
+    dayMon:           "Lun",
+    dayTue:           "Mar",
+    dayWed:           "Mer",
+    dayThu:           "Jeu",
+    dayFri:           "Ven",
+    daySat:           "Sam",
+
+    // ── Language display names ────────────────────────────────────
+    languageNames: {
+      en: "Anglais",
+      he: "Hébreu",
+      ru: "Russe",
+      fr: "Français",
     },
   },
 }

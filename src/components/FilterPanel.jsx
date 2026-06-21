@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 
 const DAYS       = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
-const LANG_CODES = ['en', 'he', 'ru']
-const LANG_FLAGS = { en: '🇺🇸', he: '🇮🇱', ru: '🇷🇺' }
+const LANG_CODES = ['en', 'he', 'ru', 'fr']
+const LANG_FLAGS = { en: '🇺🇸', he: '🇮🇱', ru: '🇷🇺', fr: '🇫🇷' }
 const RATING_OPTIONS = [0, 3, 4, 5]
 const AGE_OPTIONS    = [5, 6, 7, 8, 9, 10, 11, 12, 13]
 const PRICE_OPTIONS  = [150, 200, 250, 300, 350, 400, 450, 500]
