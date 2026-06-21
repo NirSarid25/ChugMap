@@ -279,7 +279,7 @@ export default function ActivityModal({ activity, lang, t, onClose, registration
           t={t}
           isWaitlist={isWaitlist}
           onClose={() => setRegisterOpen(false)}
-          onRegister={onRegister}
+          onRegister={(form) => onRegister(form, isWaitlist)}
         />
       )}
     </>
