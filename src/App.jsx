@@ -98,6 +98,11 @@ export default function App() {
             }`}
           >
             🗺️ {t.mapView}
+            {activeFilterCount > 0 && (
+              <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-indigo-100 text-indigo-700 text-[9px] font-bold leading-none">
+                {filteredActivities.length}
+              </span>
+            )}
           </button>
           <button
             onClick={() => setViewMode('list')}
@@ -108,6 +113,11 @@ export default function App() {
             }`}
           >
             ☰ {t.listView}
+            {activeFilterCount > 0 && (
+              <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-indigo-100 text-indigo-700 text-[9px] font-bold leading-none">
+                {filteredActivities.length}
+              </span>
+            )}
           </button>
         </div>
 
