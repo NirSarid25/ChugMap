@@ -31,10 +31,10 @@ export default function RegistrationsScreen({
       dir={isRtl ? 'rtl' : 'ltr'}
       className="flex-1 min-h-0 overflow-y-auto bg-gray-50 flex flex-col"
     >
-      {/* ── Gradient header ──────────────────────────────── */}
-      <div className="bg-gradient-to-r from-indigo-600 to-violet-600 px-5 pt-10 pb-7 flex-shrink-0">
-        <h1 className="text-xl font-black text-white tracking-tight">{t.myRegistrations}</h1>
-        <p className="text-white/55 text-sm mt-0.5 font-medium">
+      {/* ── Screen header ────────────────────────────────── */}
+      <div className="bg-white border-b border-gray-100 px-5 pt-5 pb-5 flex-shrink-0">
+        <h1 className="text-xl font-black text-gray-900 tracking-tight">{t.myRegistrations}</h1>
+        <p className="text-gray-500 text-sm mt-0.5 font-medium">
           {t.registeredCount.replace('{n}', totalCount)}
         </p>
       </div>

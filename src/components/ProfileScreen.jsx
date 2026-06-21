@@ -2,10 +2,10 @@ import { useState } from 'react'
 
 function UserAvatar() {
   return (
-    <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" aria-hidden="true">
-      <circle cx="20" cy="14" r="7" stroke="rgba(255,255,255,0.85)" strokeWidth="2" />
+    <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8 text-indigo-600" aria-hidden="true">
+      <circle cx="20" cy="14" r="7" stroke="currentColor" strokeWidth="2" />
       <path d="M5 36c0-7 6.716-12 15-12s15 5 15 12"
-            stroke="rgba(255,255,255,0.85)" strokeWidth="2" strokeLinecap="round" />
+            stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
   )
 }
@@ -36,15 +36,15 @@ export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRem
       dir={isRtl ? 'rtl' : 'ltr'}
       className="flex-1 min-h-0 overflow-y-auto bg-gray-50 flex flex-col"
     >
-      {/* ── Gradient header ──────────────────────────────── */}
-      <div className="bg-gradient-to-r from-indigo-600 to-violet-600 px-5 pt-10 pb-8 flex-shrink-0">
+      {/* ── Screen header ────────────────────────────────── */}
+      <div className="bg-white border-b border-gray-100 px-5 pt-5 pb-5 flex-shrink-0">
         <div className="flex items-center gap-4">
-          <div className="w-16 h-16 rounded-full bg-white/20 border-2 border-white/25 flex items-center justify-center flex-shrink-0">
+          <div className="w-14 h-14 rounded-full bg-indigo-100 border-2 border-indigo-200 flex items-center justify-center flex-shrink-0">
             <UserAvatar />
           </div>
           <div>
-            <h1 className="text-xl font-black text-white tracking-tight">{t.profileTitle}</h1>
-            <p className="text-white/55 text-sm mt-0.5 font-medium">{countLabel}</p>
+            <h1 className="text-xl font-black text-gray-900 tracking-tight">{t.profileTitle}</h1>
+            <p className="text-gray-500 text-sm mt-0.5 font-medium">{countLabel}</p>
           </div>
         </div>
       </div>

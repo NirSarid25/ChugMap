@@ -112,19 +112,20 @@ export default function App() {
   return (
     <div className={`h-dvh flex flex-col bg-white transition-[filter] duration-300 ${selected ? 'blur-sm' : ''}`}>
 
+      {/* ── Persistent global header ─────────────────────── */}
+      <header className="flex items-center justify-between px-5 py-4 bg-gradient-to-r from-indigo-600 to-violet-600 z-10 flex-shrink-0 shadow-lg">
+        <div>
+          <h1 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
+            📍 ChugMap
+          </h1>
+          <p className="text-xs text-white/70 mt-0.5 font-medium">{t.appTagline}</p>
+        </div>
+        <LanguageSwitcher lang={lang} onChange={setLang} dark />
+      </header>
+
       {/* ── Search tab ─────────────────────────────────────── */}
       {activeTab === 'search' && (
         <>
-          <header className="flex items-center justify-between px-5 py-4 bg-gradient-to-r from-indigo-600 to-violet-600 z-10 flex-shrink-0 shadow-lg">
-            <div>
-              <h1 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-                📍 ChugMap
-              </h1>
-              <p className="text-xs text-white/70 mt-0.5 font-medium">{t.appTagline}</p>
-            </div>
-            <LanguageSwitcher lang={lang} onChange={setLang} dark />
-          </header>
-
           {/* View toggle + filter bar — always dir=ltr so toggle order never flips */}
           <div dir="ltr" className="flex items-center gap-3 px-4 py-2.5 bg-white border-b border-gray-100 flex-shrink-0">
             <div className="flex bg-gray-100 rounded-xl p-0.5 gap-0.5">
