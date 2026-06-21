@@ -72,6 +72,14 @@ export const translations = {
     successMessageWaitlist:   "You have successfully joined the waitlist. A representative from our team will contact you when registration opens again. Thank you.",
     done:                     "Done",
 
+    // ── View toggle & list view ───────────────────────────────────
+    mapView:            "Map View",
+    listView:           "List View",
+    viewDetails:        "View Details",
+    noResults:          "No activities found",
+    noResultsSub:       "Try adjusting your filters",
+    childrenRegistered: "{n} registered",
+
     // ── Language display names (for instructor.languages) ─────────
     languageNames: {
       en: "English",
@@ -153,6 +161,14 @@ export const translations = {
     successMessageWaitlist:   "נכנסת לרשימת המתנה, נציג מאתנו ייצור איתך קשר כשההרשמה תפתח שוב תודה",
     done:                     "סיום",
 
+    // ── View toggle & list view ───────────────────────────────────
+    mapView:            "תצוגת מפה",
+    listView:           "תצוגת רשימה",
+    viewDetails:        "לפרטים",
+    noResults:          "לא נמצאו פעילויות",
+    noResultsSub:       "נסו לשנות את קריטריוני החיפוש",
+    childrenRegistered: "{n} רשומים",
+
     // ── Language display names ────────────────────────────────────
     languageNames: {
       en: "אנגלית",
@@ -233,6 +249,14 @@ export const translations = {
     successTitleWaitlist:     "Вы в листе ожидания! 🎉",
     successMessageWaitlist:   "Вы успешно вошли в лист ожидания. Наш представитель свяжется с вами, когда запись снова откроется. Спасибо.",
     done:                     "Готово",
+
+    // ── View toggle & list view ───────────────────────────────────
+    mapView:            "Карта",
+    listView:           "Список",
+    viewDetails:        "Подробнее",
+    noResults:          "Занятий не найдено",
+    noResultsSub:       "Попробуйте изменить параметры",
+    childrenRegistered: "{n} записан(о)",
 
     // ── Language display names ────────────────────────────────────
     languageNames: {

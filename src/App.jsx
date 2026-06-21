@@ -3,11 +3,13 @@ import { activities } from './data/activities'
 import { translations } from './i18n/translations'
 import ActivityModal from './components/ActivityModal'
 import MapView from './components/MapView'
+import ListView from './components/ListView'
 import LanguageSwitcher from './components/LanguageSwitcher'
 
 export default function App() {
   const [lang, setLang]             = useState('en')
   const [selected, setSelected]     = useState(null)
+  const [viewMode, setViewMode]     = useState('map')
   // registrations: { [activityId]: [{ childName, parentName, childAge, email, phone }] }
   const [registrations, setRegistrations] = useState({})
   const t = translations[lang]
@@ -38,12 +40,48 @@ export default function App() {
         <LanguageSwitcher lang={lang} onChange={setLang} dark />
       </header>
 
-      {/* Map */}
-      <MapView
-        activities={activities}
-        onSelectActivity={setSelected}
-        lang={lang}
-      />
+      {/* View toggle bar — always dir=ltr, like LanguageSwitcher */}
+      <div dir="ltr" className="flex items-center px-4 py-2.5 bg-white border-b border-gray-100 flex-shrink-0">
+        <div className="flex bg-gray-100 rounded-xl p-1 gap-0.5 w-full">
+          <button
+            onClick={() => setViewMode('map')}
+            className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-bold transition-all ${
+              viewMode === 'map'
+                ? 'bg-white text-indigo-700 shadow-sm'
+                : 'text-gray-500 hover:text-gray-700'
+            }`}
+          >
+            🗺️ {t.mapView}
+          </button>
+          <button
+            onClick={() => setViewMode('list')}
+            className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-bold transition-all ${
+              viewMode === 'list'
+                ? 'bg-white text-indigo-700 shadow-sm'
+                : 'text-gray-500 hover:text-gray-700'
+            }`}
+          >
+            ☰ {t.listView}
+          </button>
+        </div>
+      </div>
+
+      {/* Content */}
+      {viewMode === 'map' ? (
+        <MapView
+          activities={activities}
+          onSelectActivity={setSelected}
+          lang={lang}
+        />
+      ) : (
+        <ListView
+          activities={activities}
+          lang={lang}
+          t={t}
+          registrations={registrations}
+          onSelectActivity={setSelected}
+        />
+      )}
 
       {/* Detail modal */}
       {selected && (
