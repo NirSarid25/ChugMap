@@ -6,6 +6,7 @@ import MapView from './components/MapView'
 import ListView from './components/ListView'
 import FilterPanel from './components/FilterPanel'
 import LanguageSwitcher from './components/LanguageSwitcher'
+import LandingPage from './components/LandingPage'
 
 const INITIAL_FILTERS = {
   age:       '',
@@ -24,6 +25,7 @@ function FunnelIcon() {
 }
 
 export default function App() {
+  const [showLanding, setShowLanding] = useState(true)
   const [lang, setLang]         = useState('en')
   const [selected, setSelected] = useState(null)
   const [viewMode, setViewMode] = useState('map')
@@ -66,6 +68,16 @@ export default function App() {
     (filters.minRating > 0 ? 1 : 0) +
     (filters.days.length > 0 ? 1 : 0)
   )
+
+  if (showLanding) {
+    return (
+      <LandingPage
+        lang={lang}
+        onLangChange={setLang}
+        onEnter={() => setShowLanding(false)}
+      />
+    )
+  }
 
   // h-dvh = dynamic viewport height — correctly excludes iOS Safari's
   // retractable address bar, unlike h-screen (100vh) which over-extends

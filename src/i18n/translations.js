@@ -102,6 +102,19 @@ export const translations = {
     dayFri:           "Fri",
     daySat:           "Sat",
 
+    // ── Landing page ──────────────────────────────────────────────
+    landingTagline:  "Find the perfect after-school activity for your child",
+    landingSubtitle: "33+ verified activities in Tel Aviv — immigrant-friendly ratings & multilingual instructors",
+    startExploring:  "Start Exploring",
+    feat1Title: "Map & List View",
+    feat1Desc:  "Browse activities on an interactive map or card grid",
+    feat2Title: "Immigrant Friendly",
+    feat2Desc:  "Ratings, Hebrew level and multilingual instructors",
+    feat3Title: "Smart Filters",
+    feat3Desc:  "Filter by age, price, language, rating and day",
+    feat4Title: "Easy Registration",
+    feat4Desc:  "Register or join the waitlist in seconds",
+
     // ── Language display names (for instructor.languages) ─────────
     languageNames: {
       en: "English",
@@ -213,6 +226,19 @@ export const translations = {
     dayThu:           "חמישי",
     dayFri:           "שישי",
     daySat:           "שבת",
+
+    // ── Landing page ──────────────────────────────────────────────
+    landingTagline:  "מצאו את הפעילות המושלמת לילדכם",
+    landingSubtitle: "33+ פעילויות מאומתות בתל אביב — דירוגי עולים ומדריכים רב-לשוניים",
+    startExploring:  "התחילו לגלות",
+    feat1Title: "מפה ורשימה",
+    feat1Desc:  "גלשו בפעילויות על מפה אינטראקטיבית או ברשימת כרטיסים",
+    feat2Title: "ידידותי לעולים",
+    feat2Desc:  "דירוגים, רמת עברית ומדריכים רב-לשוניים",
+    feat3Title: "פילטרים חכמים",
+    feat3Desc:  "סינון לפי גיל, מחיר, שפה, דירוג ויום",
+    feat4Title: "הרשמה קלה",
+    feat4Desc:  "הרשמה או הצטרפות לרשימת המתנה תוך שניות",
 
     // ── Language display names ────────────────────────────────────
     languageNames: {
@@ -326,6 +352,19 @@ export const translations = {
     dayFri:           "Пт",
     daySat:           "Сб",
 
+    // ── Landing page ──────────────────────────────────────────────
+    landingTagline:  "Найдите идеальное занятие после школы для вашего ребёнка",
+    landingSubtitle: "33+ проверенных занятия в Тель-Авиве — рейтинги для иммигрантов и многоязычные инструкторы",
+    startExploring:  "Начать",
+    feat1Title: "Карта и список",
+    feat1Desc:  "Просматривайте занятия на интерактивной карте или в виде карточек",
+    feat2Title: "Для иммигрантов",
+    feat2Desc:  "Рейтинги, уровень иврита и многоязычная поддержка",
+    feat3Title: "Умные фильтры",
+    feat3Desc:  "Фильтр по возрасту, цене, языку, рейтингу и дню",
+    feat4Title: "Простая запись",
+    feat4Desc:  "Записывайтесь или становитесь в очередь за секунды",
+
     // ── Language display names ────────────────────────────────────
     languageNames: {
       en: "Английский",
@@ -437,6 +476,19 @@ export const translations = {
     dayThu:           "Jeu",
     dayFri:           "Ven",
     daySat:           "Sam",
+
+    // ── Landing page ──────────────────────────────────────────────
+    landingTagline:  "Trouvez l'activité parascolaire idéale pour votre enfant",
+    landingSubtitle: "33+ activités vérifiées à Tel Aviv — notes immigrants et instructeurs multilingues",
+    startExploring:  "Commencer",
+    feat1Title: "Carte & Liste",
+    feat1Desc:  "Parcourez les activités sur une carte interactive ou en liste de cartes",
+    feat2Title: "Pour les immigrants",
+    feat2Desc:  "Notes, niveau d'hébreu et instructeurs multilingues",
+    feat3Title: "Filtres intelligents",
+    feat3Desc:  "Filtrez par âge, prix, langue, note et jour",
+    feat4Title: "Inscription facile",
+    feat4Desc:  "Inscrivez-vous ou rejoignez la liste d'attente en quelques secondes",
 
     // ── Language display names ────────────────────────────────────
     languageNames: {
