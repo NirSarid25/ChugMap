@@ -103,6 +103,7 @@ export const translations = {
     daySat:           "Sat",
 
     // ── Landing page ──────────────────────────────────────────────
+    loading:         "Loading...",
     landingTagline:  "Find the perfect after-school activity for your child",
     landingSubtitle: "33+ verified activities in Tel Aviv — immigrant-friendly ratings & multilingual instructors",
     startExploring:  "Start Exploring",
@@ -228,6 +229,7 @@ export const translations = {
     daySat:           "שבת",
 
     // ── Landing page ──────────────────────────────────────────────
+    loading:         "טוען...",
     landingTagline:  "מצאו את הפעילות המושלמת לילדכם",
     landingSubtitle: "33+ פעילויות מאומתות בתל אביב — דירוגי עולים ומדריכים רב-לשוניים",
     startExploring:  "התחילו לגלות",
@@ -353,6 +355,7 @@ export const translations = {
     daySat:           "Сб",
 
     // ── Landing page ──────────────────────────────────────────────
+    loading:         "Загрузка...",
     landingTagline:  "Найдите идеальное занятие после школы для вашего ребёнка",
     landingSubtitle: "33+ проверенных занятия в Тель-Авиве — рейтинги для иммигрантов и многоязычные инструкторы",
     startExploring:  "Начать",
@@ -478,6 +481,7 @@ export const translations = {
     daySat:           "Sam",
 
     // ── Landing page ──────────────────────────────────────────────
+    loading:         "Chargement...",
     landingTagline:  "Trouvez l'activité parascolaire idéale pour votre enfant",
     landingSubtitle: "33+ activités vérifiées à Tel Aviv — notes immigrants et instructeurs multilingues",
     startExploring:  "Commencer",

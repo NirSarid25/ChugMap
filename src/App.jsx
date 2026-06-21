@@ -46,6 +46,11 @@ export default function App() {
     document.documentElement.dir = lang === 'he' ? 'rtl' : 'ltr'
   }, [lang])
 
+  useEffect(() => {
+    const timer = setTimeout(() => setShowLanding(false), 5000)
+    return () => clearTimeout(timer)
+  }, [])
+
   // Centralized filtering — shared by both MapView and ListView
   const filteredActivities = useMemo(() => {
     return activities.filter(a => {
@@ -74,7 +79,6 @@ export default function App() {
       <LandingPage
         lang={lang}
         onLangChange={setLang}
-        onEnter={() => setShowLanding(false)}
       />
     )
   }
