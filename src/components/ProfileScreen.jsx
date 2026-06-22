@@ -35,6 +35,16 @@ function ChevronDown() {
   )
 }
 
+function GearIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+      <circle cx="11" cy="11" r="3" stroke="currentColor" strokeWidth="1.8"/>
+      <path d="M11 2v1.8M11 18.2V20M2 11h1.8M18.2 11H20M4.64 4.64l1.27 1.27M16.09 16.09l1.27 1.27M17.36 4.64l-1.27 1.27M5.91 16.09l-1.27 1.27"
+            stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+    </svg>
+  )
+}
+
 const AGE_OPTIONS = Array.from({ length: 9 }, (_, i) => i + 5)
 
 const isValidAge = (val) => {
@@ -42,7 +52,7 @@ const isValidAge = (val) => {
   return !isNaN(n) && n >= 5 && n <= 13
 }
 
-export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRemoveChild, onEditChild }) {
+export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRemoveChild, onEditChild, onGoToSettings }) {
   const [adding, setAdding]             = useState(false)
   const [newName, setNewName]           = useState('')
   const [newAge, setNewAge]             = useState('')
@@ -119,10 +129,19 @@ export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRem
           <div className="w-14 h-14 rounded-full bg-indigo-100 border-2 border-indigo-200 flex items-center justify-center flex-shrink-0">
             <UserAvatar />
           </div>
-          <div>
+          <div className="flex-1 min-w-0">
             <h1 className="text-xl font-black text-gray-900 tracking-tight">{t.profileTitle}</h1>
             <p className="text-gray-500 text-sm mt-0.5 font-medium">{countLabel}</p>
           </div>
+          {onGoToSettings && (
+            <button
+              onClick={onGoToSettings}
+              className="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 active:scale-95 transition-all flex-shrink-0"
+              aria-label={t.tabSettings}
+            >
+              <GearIcon />
+            </button>
+          )}
         </div>
       </div>
 

@@ -244,6 +244,7 @@ export default function App() {
           onAddChild={handleAddChild}
           onRemoveChild={handleRemoveChild}
           onEditChild={handleEditChild}
+          onGoToSettings={() => setActiveTab('settings')}
         />
       )}
 
