@@ -110,7 +110,7 @@ export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRem
   const countLabel = `${childrenList.length} ${t.myChildren.toLowerCase()}`
 
   const ageSelectClass = (hasError, focusColor = 'indigo') =>
-    `w-full px-3 py-2.5 rounded-xl border text-sm text-gray-900 outline-none transition-all appearance-none pe-7 ${
+    `w-full px-3 py-2.5 rounded-xl border text-sm text-gray-900 outline-none transition-all appearance-none cursor-pointer pe-7 ${
       hasError
         ? 'border-red-300 bg-red-50 focus:border-red-400 focus:ring-2 focus:ring-red-100'
         : focusColor === 'blue'
