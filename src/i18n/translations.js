@@ -137,6 +137,20 @@ export const translations = {
     saveEdit:           "Save",
     cancelEdit:         "Cancel",
 
+    // ── Settings screen ───────────────────────────────────────────
+    tabSettings:        "Settings",
+    settingsTitle:      "Settings",
+    settingsSubtitle:   "Preferences & defaults",
+    contactDefaults:    "Contact Defaults",
+    contactDefaultsSub: "Auto-fill registration forms",
+    saveContact:        "Save",
+    contactSaved:       "Saved ✓",
+    preferences:        "App Preferences",
+    preferredLanguage:  "Language",
+    defaultView:        "Default View",
+    homeNeighborhood:   "Home Neighborhood",
+    allTelAviv:         "All Tel Aviv",
+
     // ── Landing page ──────────────────────────────────────────────
     loading:         "Loading...",
     landingTagline:  "Find the perfect after-school activity for your child",
@@ -297,6 +311,20 @@ export const translations = {
     deleteChild:        "מחיקה",
     saveEdit:           "שמור",
     cancelEdit:         "ביטול",
+
+    // ── Settings screen ───────────────────────────────────────────
+    tabSettings:        "הגדרות",
+    settingsTitle:      "הגדרות",
+    settingsSubtitle:   "העדפות וברירות מחדל",
+    contactDefaults:    "פרטי קשר ברירת מחדל",
+    contactDefaultsSub: "מילוי אוטומטי בטפסי הרשמה",
+    saveContact:        "שמור",
+    contactSaved:       "נשמר ✓",
+    preferences:        "העדפות",
+    preferredLanguage:  "שפה",
+    defaultView:        "תצוגת ברירת מחדל",
+    homeNeighborhood:   "שכונת מגורים",
+    allTelAviv:         "כל תל אביב",
 
     // ── Landing page ──────────────────────────────────────────────
     loading:         "טוען...",
@@ -459,6 +487,20 @@ export const translations = {
     saveEdit:           "Сохранить",
     cancelEdit:         "Отмена",
 
+    // ── Settings screen ───────────────────────────────────────────
+    tabSettings:        "Настройки",
+    settingsTitle:      "Настройки",
+    settingsSubtitle:   "Настройки по умолчанию",
+    contactDefaults:    "Контакт по умолчанию",
+    contactDefaultsSub: "Автозаполнение форм регистрации",
+    saveContact:        "Сохранить",
+    contactSaved:       "Сохранено ✓",
+    preferences:        "Приложение",
+    preferredLanguage:  "Язык",
+    defaultView:        "Вид по умолчанию",
+    homeNeighborhood:   "Домашний район",
+    allTelAviv:         "Весь Тель-Авив",
+
     // ── Landing page ──────────────────────────────────────────────
     loading:         "Загрузка...",
     landingTagline:  "Найдите идеальное занятие после школы для вашего ребёнка",
@@ -619,6 +661,20 @@ export const translations = {
     deleteChild:        "Supprimer",
     saveEdit:           "Enregistrer",
     cancelEdit:         "Annuler",
+
+    // ── Settings screen ───────────────────────────────────────────
+    tabSettings:        "Paramètres",
+    settingsTitle:      "Paramètres",
+    settingsSubtitle:   "Préférences et valeurs par défaut",
+    contactDefaults:    "Coordonnées par défaut",
+    contactDefaultsSub: "Préremplir les formulaires d'inscription",
+    saveContact:        "Enregistrer",
+    contactSaved:       "Enregistré ✓",
+    preferences:        "Préférences",
+    preferredLanguage:  "Langue",
+    defaultView:        "Vue par défaut",
+    homeNeighborhood:   "Quartier de résidence",
+    allTelAviv:         "Tout Tel Aviv",
 
     // ── Landing page ──────────────────────────────────────────────
     loading:         "Chargement...",

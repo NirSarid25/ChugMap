@@ -43,7 +43,7 @@ function createPinIcon(emoji, color) {
   })
 }
 
-export default function MapView({ activities, onSelectActivity, lang }) {
+export default function MapView({ activities, onSelectActivity, lang, homeCenter }) {
   // Memoised so Leaflet doesn't rebuild marker DOM on unrelated re-renders.
   // activities is a module-level constant so this runs once per mount.
   const icons = useMemo(
@@ -56,8 +56,8 @@ export default function MapView({ activities, onSelectActivity, lang }) {
   return (
     <div className="flex-1 min-h-0">
       <MapContainer
-        center={TEL_AVIV_CENTER}
-        zoom={DEFAULT_ZOOM}
+        center={homeCenter || TEL_AVIV_CENTER}
+        zoom={homeCenter ? 14 : DEFAULT_ZOOM}
         minZoom={10}
         maxZoom={19}
         scrollWheelZoom

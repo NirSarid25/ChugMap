@@ -99,12 +99,12 @@ function NoChildrenState({ t, onGoToProfile }) {
 
 export default function RegistrationModal({
   activity, lang, t, isWaitlist = false, onClose, onRegister,
-  childrenList = [], existingRegistrations = [], onGoToProfile,
+  childrenList = [], existingRegistrations = [], onGoToProfile, defaultContact = {},
 }) {
   const [closing, setClosing]                   = useState(false)
   const [submitted, setSubmitted]               = useState(false)
   const [selectedChildren, setSelectedChildren] = useState([])
-  const [form, setForm]     = useState({ parentName: '', email: '', phone: '' })
+  const [form, setForm]     = useState({ parentName: defaultContact.parentName || '', email: defaultContact.email || '', phone: defaultContact.phone || '' })
   const [errors, setErrors] = useState({})
   const isRtl = lang === 'he'
 

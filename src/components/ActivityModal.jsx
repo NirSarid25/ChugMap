@@ -70,7 +70,7 @@ function HebrewLevelBadge({ level, t }) {
   )
 }
 
-export default function ActivityModal({ activity, lang, t, onClose, registrations = [], onRegister, childrenList = [], onGoToProfile }) {
+export default function ActivityModal({ activity, lang, t, onClose, registrations = [], onRegister, childrenList = [], onGoToProfile, defaultContact = {} }) {
   const [closing, setClosing]           = useState(false)
   const [registerOpen, setRegisterOpen] = useState(false)
   const isRtl      = lang === 'he'
@@ -283,6 +283,7 @@ export default function ActivityModal({ activity, lang, t, onClose, registration
           childrenList={childrenList}
           existingRegistrations={registrations}
           onGoToProfile={onGoToProfile}
+          defaultContact={defaultContact}
         />
       )}
     </>

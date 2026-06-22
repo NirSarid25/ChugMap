@@ -10,6 +10,7 @@ import LandingPage from './components/LandingPage'
 import BottomNav from './components/BottomNav'
 import ProfileScreen from './components/ProfileScreen'
 import RegistrationsScreen from './components/RegistrationsScreen'
+import SettingsScreen from './components/SettingsScreen'
 
 const INITIAL_FILTERS = {
   age:       '',
@@ -17,6 +18,14 @@ const INITIAL_FILTERS = {
   languages: [],
   minRating: 0,
   days:      [],
+}
+
+const SETTINGS_KEY = 'chugmap_settings'
+const DEFAULT_SETTINGS = { parentName: '', email: '', phone: '', neighborhood: '', defaultView: 'map' }
+
+function loadSettings() {
+  try { return { ...DEFAULT_SETTINGS, ...JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}') } }
+  catch { return { ...DEFAULT_SETTINGS } }
 }
 
 function FunnelIcon() {
@@ -29,20 +38,22 @@ function FunnelIcon() {
 
 export default function App() {
   const [showLanding, setShowLanding]     = useState(true)
-  const [lang, setLang]                   = useState('en')
+  const [lang, setLang]                   = useState(() => localStorage.getItem('chugmap_lang') || 'en')
   const [activeTab, setActiveTab]         = useState('search')
   const [selected, setSelected]           = useState(null)
-  const [viewMode, setViewMode]           = useState('map')
+  const [settings, setSettings]           = useState(loadSettings)
+  const [viewMode, setViewMode]           = useState(() => loadSettings().defaultView)
   const [filterOpen, setFilterOpen]       = useState(false)
   const [filters, setFilters]             = useState(INITIAL_FILTERS)
-  // { [activityId]: [{ childName, parentName, childAge, email, phone, isWaitlist }] }
+  // { [activityId]: [{ childName, childAge, parentName, email, phone, isWaitlist }] }
   const [registrations, setRegistrations] = useState({})
   const [childrenList, setChildrenList]   = useState([])
   const t = translations[lang]
 
-  // RTL/LTR on the root HTML element
+  // RTL/LTR + persist language preference
   useEffect(() => {
     document.documentElement.dir = lang === 'he' ? 'rtl' : 'ltr'
+    localStorage.setItem('chugmap_lang', lang)
   }, [lang])
 
   // Auto-dismiss splash screen after 5 seconds
@@ -76,6 +87,14 @@ export default function App() {
   const handleRemoveChild = (index)         => setChildrenList(prev => prev.filter((_, i) => i !== index))
   const handleEditChild   = (index, { name, age }) => setChildrenList(prev => prev.map((child, i) => i === index ? { ...child, name, age } : child))
 
+  // ── Settings handler ───────────────────────────────────────────
+  const handleSaveSettings = (updates) => {
+    const next = { ...settings, ...updates }
+    setSettings(next)
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify(next))
+    if (updates.defaultView !== undefined) setViewMode(updates.defaultView)
+  }
+
   // ── Centralized filtering (shared by MapView + ListView) ───────
   const filteredActivities = useMemo(() => {
     return activities.filter(a => {
@@ -90,6 +109,22 @@ export default function App() {
       return true
     })
   }, [filters])
+
+  // Unique English neighborhood names for Settings dropdown
+  const neighborhoods = useMemo(() =>
+    [...new Set(activities.map(a => a.neighborhood?.en).filter(Boolean))].sort(),
+    []
+  )
+
+  // Map center computed from saved home neighborhood
+  const homeCenter = useMemo(() => {
+    if (!settings.neighborhood) return null
+    const local = activities.filter(a => a.neighborhood?.en === settings.neighborhood)
+    if (local.length === 0) return null
+    const lat = local.reduce((s, a) => s + a.coords[0], 0) / local.length
+    const lng = local.reduce((s, a) => s + a.coords[1], 0) / local.length
+    return [lat, lng]
+  }, [settings.neighborhood])
 
   const activeFilterCount = (
     (filters.age !== '' ? 1 : 0) +
@@ -182,6 +217,8 @@ export default function App() {
 
           {viewMode === 'map' ? (
             <MapView
+              key={settings.neighborhood || 'default'}
+              homeCenter={homeCenter}
               activities={filteredActivities}
               onSelectActivity={setSelected}
               lang={lang}
@@ -222,6 +259,18 @@ export default function App() {
         />
       )}
 
+      {/* ── Settings tab ────────────────────────────────────── */}
+      {activeTab === 'settings' && (
+        <SettingsScreen
+          t={t}
+          lang={lang}
+          onLangChange={setLang}
+          settings={settings}
+          onSaveSettings={handleSaveSettings}
+          neighborhoods={neighborhoods}
+        />
+      )}
+
       {/* ── Persistent bottom navigation bar ────────────────── */}
       <BottomNav
         activeTab={activeTab}
@@ -241,6 +290,7 @@ export default function App() {
           onRegister={(formData, isWaitlist) => handleRegister(selected.id, formData, isWaitlist)}
           childrenList={childrenList}
           onGoToProfile={() => { setSelected(null); setActiveTab('profile') }}
+          defaultContact={{ parentName: settings.parentName, email: settings.email, phone: settings.phone }}
         />
       )}
 

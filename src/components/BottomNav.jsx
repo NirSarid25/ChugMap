@@ -28,10 +28,21 @@ function UserIcon({ active }) {
   )
 }
 
+function GearIcon({ active }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+      <circle cx="11" cy="11" r="3" stroke="currentColor" strokeWidth={active ? 2 : 1.7}/>
+      <path d="M11 2v1.8M11 18.2V20M2 11h1.8M18.2 11H20M4.64 4.64l1.27 1.27M16.09 16.09l1.27 1.27M17.36 4.64l-1.27 1.27M5.91 16.09l-1.27 1.27"
+            stroke="currentColor" strokeWidth={active ? 2 : 1.7} strokeLinecap="round"/>
+    </svg>
+  )
+}
+
 const TABS = [
   { id: 'search',        labelKey: 'tabSearch',     Icon: SearchIcon   },
   { id: 'registrations', labelKey: 'tabActivities', Icon: CalendarIcon },
   { id: 'profile',       labelKey: 'tabProfile',    Icon: UserIcon     },
+  { id: 'settings',      labelKey: 'tabSettings',   Icon: GearIcon     },
 ]
 
 export default function BottomNav({ activeTab, onChange, t, registrationCount = 0 }) {
