@@ -27,32 +27,46 @@ function XIcon() {
   )
 }
 
+const isValidAge = (val) => {
+  const n = parseInt(val, 10)
+  return !isNaN(n) && n >= 5 && n <= 13
+}
+
 export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRemoveChild, onEditChild }) {
-  const [adding, setAdding]           = useState(false)
-  const [newName, setNewName]         = useState('')
-  const [removingIdx, setRemovingIdx] = useState(null)
-  const [editingIdx, setEditingIdx]   = useState(null)
-  const [editName, setEditName]       = useState('')
+  const [adding, setAdding]             = useState(false)
+  const [newName, setNewName]           = useState('')
+  const [newAge, setNewAge]             = useState('')
+  const [newAgeError, setNewAgeError]   = useState(false)
+  const [removingIdx, setRemovingIdx]   = useState(null)
+  const [editingIdx, setEditingIdx]     = useState(null)
+  const [editName, setEditName]         = useState('')
+  const [editAge, setEditAge]           = useState('')
+  const [editAgeError, setEditAgeError] = useState(false)
   const isRtl = lang === 'he'
 
   // ── Add new child ──────────────────────────────────────────────
   const handleSave = () => {
     const trimmed = newName.trim()
     if (!trimmed) return
-    onAddChild(trimmed)
+    if (!isValidAge(newAge)) { setNewAgeError(true); return }
+    onAddChild({ name: trimmed, age: parseInt(newAge, 10) })
     setNewName('')
+    setNewAge('')
+    setNewAgeError(false)
     setAdding(false)
   }
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') handleSave()
-    if (e.key === 'Escape') { setAdding(false); setNewName('') }
+    if (e.key === 'Escape') { setAdding(false); setNewName(''); setNewAge(''); setNewAgeError(false) }
   }
 
   // ── Edit existing child ────────────────────────────────────────
-  const startEdit = (i, name) => {
+  const startEdit = (i, child) => {
     setEditingIdx(i)
-    setEditName(name)
+    setEditName(child.name)
+    setEditAge(String(child.age))
+    setEditAgeError(false)
     setRemovingIdx(null)
     setAdding(false)
   }
@@ -60,17 +74,29 @@ export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRem
   const handleEditSave = () => {
     const trimmed = editName.trim()
     if (!trimmed) return
-    onEditChild(editingIdx, trimmed)
+    if (!isValidAge(editAge)) { setEditAgeError(true); return }
+    onEditChild(editingIdx, { name: trimmed, age: parseInt(editAge, 10) })
     setEditingIdx(null)
     setEditName('')
+    setEditAge('')
+    setEditAgeError(false)
   }
 
   const handleEditKeyDown = (e) => {
     if (e.key === 'Enter') handleEditSave()
-    if (e.key === 'Escape') { setEditingIdx(null); setEditName('') }
+    if (e.key === 'Escape') { setEditingIdx(null); setEditName(''); setEditAge(''); setEditAgeError(false) }
   }
 
   const countLabel = `${childrenList.length} ${t.myChildren.toLowerCase()}`
+
+  const ageInputClass = (hasError, focusColor = 'indigo') =>
+    `w-[72px] px-2.5 py-2.5 rounded-xl border text-sm text-gray-900 outline-none transition-all text-center [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none ${
+      hasError
+        ? 'border-red-300 bg-red-50 focus:border-red-400 focus:ring-2 focus:ring-red-100'
+        : focusColor === 'blue'
+          ? 'border-blue-200 bg-white focus:border-blue-400 focus:ring-2 focus:ring-blue-100'
+          : 'border-indigo-200 bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100'
+    }`
 
   return (
     <div
@@ -109,20 +135,35 @@ export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRem
             )}
           </div>
 
-          {/* Inline add form */}
+          {/* ── Inline add form ───────────────────────── */}
           {adding && (
             <div className="px-4 py-3.5 border-b border-gray-50 bg-indigo-50/40">
-              <input
-                autoFocus
-                value={newName}
-                onChange={e => setNewName(e.target.value)}
-                onKeyDown={handleKeyDown}
-                placeholder={t.newChildPlaceholder}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-indigo-200 bg-white text-sm text-gray-900 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition-all placeholder:text-gray-400"
-              />
-              <div className="flex gap-2 mt-2.5">
+              <div className="flex gap-2 mb-2.5">
+                <input
+                  autoFocus
+                  value={newName}
+                  onChange={e => setNewName(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  placeholder={t.newChildPlaceholder}
+                  className="flex-1 px-3.5 py-2.5 rounded-xl border border-indigo-200 bg-white text-sm text-gray-900 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition-all placeholder:text-gray-400"
+                />
+                <input
+                  value={newAge}
+                  onChange={e => { setNewAge(e.target.value); setNewAgeError(false) }}
+                  onKeyDown={handleKeyDown}
+                  type="number"
+                  min="5"
+                  max="13"
+                  placeholder="5–13"
+                  className={ageInputClass(newAgeError, 'indigo')}
+                />
+              </div>
+              {newAgeError && (
+                <p className="text-xs text-red-500 font-medium mb-2.5 -mt-1">{t.invalidAge}</p>
+              )}
+              <div className="flex gap-2">
                 <button
-                  onClick={() => { setAdding(false); setNewName('') }}
+                  onClick={() => { setAdding(false); setNewName(''); setNewAge(''); setNewAgeError(false) }}
                   className="flex-1 py-2.5 rounded-xl border border-gray-200 text-gray-600 text-sm font-semibold hover:bg-gray-50 active:scale-95 transition-all"
                 >
                   {t.cancelAdd}
@@ -150,14 +191,14 @@ export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRem
           {/* Children list */}
           {childrenList.length > 0 && (
             <ul>
-              {childrenList.map((name, i) => (
-                <li key={i} className="border-b border-gray-50 last:border-0">
+              {childrenList.map((child, i) => (
+                <li key={child.id} className="border-b border-gray-50 last:border-0">
 
                   {removingIdx === i ? (
                     /* ── Delete confirmation ─────────────────── */
                     <div className="flex items-center gap-2 px-4 py-3 bg-red-50">
                       <span className="flex-1 text-xs font-semibold text-red-600 truncate">
-                        {t.removeConfirmMsg.replace('{name}', name)}
+                        {t.removeConfirmMsg.replace('{name}', child.name)}
                       </span>
                       <button
                         onClick={() => setRemovingIdx(null)}
@@ -176,16 +217,32 @@ export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRem
                   ) : editingIdx === i ? (
                     /* ── Inline edit ─────────────────────────── */
                     <div className="px-4 py-3.5 bg-blue-50/40">
-                      <input
-                        autoFocus
-                        value={editName}
-                        onChange={e => setEditName(e.target.value)}
-                        onKeyDown={handleEditKeyDown}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-blue-200 bg-white text-sm text-gray-900 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
-                      />
-                      <div className="flex gap-2 mt-2.5">
+                      <div className="flex gap-2 mb-2.5">
+                        <input
+                          autoFocus
+                          value={editName}
+                          onChange={e => setEditName(e.target.value)}
+                          onKeyDown={handleEditKeyDown}
+                          placeholder={t.newChildPlaceholder}
+                          className="flex-1 px-3.5 py-2.5 rounded-xl border border-blue-200 bg-white text-sm text-gray-900 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
+                        />
+                        <input
+                          value={editAge}
+                          onChange={e => { setEditAge(e.target.value); setEditAgeError(false) }}
+                          onKeyDown={handleEditKeyDown}
+                          type="number"
+                          min="5"
+                          max="13"
+                          placeholder="5–13"
+                          className={ageInputClass(editAgeError, 'blue')}
+                        />
+                      </div>
+                      {editAgeError && (
+                        <p className="text-xs text-red-500 font-medium mb-2.5 -mt-1">{t.invalidAge}</p>
+                      )}
+                      <div className="flex gap-2">
                         <button
-                          onClick={() => { setEditingIdx(null); setEditName('') }}
+                          onClick={() => { setEditingIdx(null); setEditName(''); setEditAge(''); setEditAgeError(false) }}
                           className="flex-1 py-2.5 rounded-xl border border-gray-200 text-gray-600 text-sm font-semibold hover:bg-gray-50 active:scale-95 transition-all"
                         >
                           {t.cancelEdit}
@@ -203,15 +260,20 @@ export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRem
                   ) : (
                     /* ── Default row ─────────────────────────── */
                     <div className="flex items-center gap-3 px-4 py-3">
-                      <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
+                      <div className="w-9 h-9 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
                         <span className="text-sm font-bold text-indigo-700 leading-none">
-                          {name.trim()[0]?.toUpperCase() ?? '?'}
+                          {child.name.trim()[0]?.toUpperCase() ?? '?'}
                         </span>
                       </div>
-                      <span className="flex-1 text-sm font-semibold text-gray-800">{name}</span>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-semibold text-gray-800 leading-snug truncate">{child.name}</p>
+                        <p className="text-xs text-gray-400 font-medium mt-0.5">
+                          {t.ageLabel.replace('{n}', child.age)}
+                        </p>
+                      </div>
                       {/* Blue edit pencil */}
                       <button
-                        onClick={() => startEdit(i, name)}
+                        onClick={() => startEdit(i, child)}
                         className="w-8 h-8 rounded-full flex items-center justify-center text-blue-500 hover:bg-blue-50 active:scale-95 transition-all"
                         aria-label={t.editChild}
                       >

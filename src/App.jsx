@@ -72,9 +72,9 @@ export default function App() {
   }
 
   // ── Children handlers ──────────────────────────────────────────
-  const handleAddChild    = (name)  => setChildrenList(prev => [...prev, name])
-  const handleRemoveChild = (index) => setChildrenList(prev => prev.filter((_, i) => i !== index))
-  const handleEditChild   = (index, newName) => setChildrenList(prev => prev.map((n, i) => i === index ? newName : n))
+  const handleAddChild    = ({ name, age }) => setChildrenList(prev => [...prev, { id: crypto.randomUUID(), name, age }])
+  const handleRemoveChild = (index)         => setChildrenList(prev => prev.filter((_, i) => i !== index))
+  const handleEditChild   = (index, { name, age }) => setChildrenList(prev => prev.map((child, i) => i === index ? { ...child, name, age } : child))
 
   // ── Centralized filtering (shared by MapView + ListView) ───────
   const filteredActivities = useMemo(() => {

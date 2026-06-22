@@ -151,9 +151,9 @@ export default function RegistrationModal({
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!validate()) return
-    // Register each selected child as a separate entry
     selectedChildren.forEach(childName => {
-      onRegister?.({ childName, parentName: form.parentName, email: form.email, phone: form.phone })
+      const child = childrenList.find(c => c.name === childName)
+      onRegister?.({ childName, childAge: child?.age ?? '', parentName: form.parentName, email: form.email, phone: form.phone })
     })
     setSubmitted(true)
   }
@@ -166,7 +166,7 @@ export default function RegistrationModal({
     }`
 
   // True if at least one child is still available to register
-  const hasAvailableChildren = childrenList.some(n => !getChildStatus(n))
+  const hasAvailableChildren = childrenList.some(child => !getChildStatus(child.name))
 
   return createPortal(
     <div
@@ -224,13 +224,13 @@ export default function RegistrationModal({
                     <NoChildrenState t={t} onGoToProfile={() => onGoToProfile?.()} />
                   ) : (
                     <div className="space-y-2">
-                      {childrenList.map(name => {
-                        const status  = getChildStatus(name)
+                      {childrenList.map(child => {
+                        const status  = getChildStatus(child.name)
                         const disabled = !!status
-                        const checked  = selectedChildren.includes(name)
+                        const checked  = selectedChildren.includes(child.name)
                         return (
                           <label
-                            key={name}
+                            key={child.id}
                             className={`flex items-center gap-3 px-3.5 py-3 rounded-xl border transition-all select-none ${
                               disabled
                                 ? 'bg-gray-50 border-gray-100 cursor-not-allowed'
@@ -243,12 +243,17 @@ export default function RegistrationModal({
                               type="checkbox"
                               checked={checked}
                               disabled={disabled}
-                              onChange={() => !disabled && toggleChild(name)}
+                              onChange={() => !disabled && toggleChild(child.name)}
                               className="w-4 h-4 flex-shrink-0 accent-indigo-600"
                             />
-                            <span className={`flex-1 text-sm font-semibold ${disabled ? 'text-gray-400' : 'text-gray-800'}`}>
-                              {name}
-                            </span>
+                            <div className={`flex-1 min-w-0 ${disabled ? 'opacity-50' : ''}`}>
+                              <p className={`text-sm font-semibold leading-snug ${disabled ? 'text-gray-400' : 'text-gray-800'}`}>
+                                {child.name}
+                              </p>
+                              <p className="text-xs text-gray-400 font-medium mt-0.5">
+                                {child.age} {child.age !== '' ? 'y/o' : ''}
+                              </p>
+                            </div>
                             {status === 'registered' && (
                               <span className="flex-shrink-0 px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700">
                                 {t.alreadyRegistered}
