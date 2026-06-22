@@ -27,6 +27,16 @@ function XIcon() {
   )
 }
 
+function ChevronDown() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+      <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
+
+const AGE_OPTIONS = Array.from({ length: 9 }, (_, i) => i + 5)
+
 const isValidAge = (val) => {
   const n = parseInt(val, 10)
   return !isNaN(n) && n >= 5 && n <= 13
@@ -89,8 +99,8 @@ export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRem
 
   const countLabel = `${childrenList.length} ${t.myChildren.toLowerCase()}`
 
-  const ageInputClass = (hasError, focusColor = 'indigo') =>
-    `w-[72px] px-2.5 py-2.5 rounded-xl border text-sm text-gray-900 outline-none transition-all text-center [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none ${
+  const ageSelectClass = (hasError, focusColor = 'indigo') =>
+    `w-full px-3 py-2.5 rounded-xl border text-sm text-gray-900 outline-none transition-all appearance-none pe-7 ${
       hasError
         ? 'border-red-300 bg-red-50 focus:border-red-400 focus:ring-2 focus:ring-red-100'
         : focusColor === 'blue'
@@ -147,16 +157,21 @@ export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRem
                   placeholder={t.newChildPlaceholder}
                   className="flex-1 px-3.5 py-2.5 rounded-xl border border-indigo-200 bg-white text-sm text-gray-900 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition-all placeholder:text-gray-400"
                 />
-                <input
-                  value={newAge}
-                  onChange={e => { setNewAge(e.target.value); setNewAgeError(false) }}
-                  onKeyDown={handleKeyDown}
-                  type="number"
-                  min="5"
-                  max="13"
-                  placeholder="5–13"
-                  className={ageInputClass(newAgeError, 'indigo')}
-                />
+                <div className="relative w-20 flex-shrink-0">
+                  <select
+                    value={newAge}
+                    onChange={e => { setNewAge(e.target.value); setNewAgeError(false) }}
+                    className={ageSelectClass(newAgeError, 'indigo')}
+                  >
+                    <option value="" disabled>{t.age}</option>
+                    {AGE_OPTIONS.map(n => (
+                      <option key={n} value={String(n)}>{n}</option>
+                    ))}
+                  </select>
+                  <span className="pointer-events-none absolute top-1/2 end-3 -translate-y-1/2 text-gray-400">
+                    <ChevronDown />
+                  </span>
+                </div>
               </div>
               {newAgeError && (
                 <p className="text-xs text-red-500 font-medium mb-2.5 -mt-1">{t.invalidAge}</p>
@@ -226,16 +241,21 @@ export default function ProfileScreen({ t, lang, childrenList, onAddChild, onRem
                           placeholder={t.newChildPlaceholder}
                           className="flex-1 px-3.5 py-2.5 rounded-xl border border-blue-200 bg-white text-sm text-gray-900 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
                         />
-                        <input
-                          value={editAge}
-                          onChange={e => { setEditAge(e.target.value); setEditAgeError(false) }}
-                          onKeyDown={handleEditKeyDown}
-                          type="number"
-                          min="5"
-                          max="13"
-                          placeholder="5–13"
-                          className={ageInputClass(editAgeError, 'blue')}
-                        />
+                        <div className="relative w-20 flex-shrink-0">
+                          <select
+                            value={editAge}
+                            onChange={e => { setEditAge(e.target.value); setEditAgeError(false) }}
+                            className={ageSelectClass(editAgeError, 'blue')}
+                          >
+                            <option value="" disabled>{t.age}</option>
+                            {AGE_OPTIONS.map(n => (
+                              <option key={n} value={String(n)}>{n}</option>
+                            ))}
+                          </select>
+                          <span className="pointer-events-none absolute top-1/2 end-3 -translate-y-1/2 text-gray-400">
+                            <ChevronDown />
+                          </span>
+                        </div>
                       </div>
                       {editAgeError && (
                         <p className="text-xs text-red-500 font-medium mb-2.5 -mt-1">{t.invalidAge}</p>
