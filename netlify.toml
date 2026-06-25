@@ -1,0 +1,17 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# index.html must never be cached — it references hashed JS/CSS filenames.
+# When a new deploy lands, the browser always fetches the latest index.html
+# and picks up the new asset URLs automatically.
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# Hashed JS/CSS assets can be cached forever — a changed file gets a new URL.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
