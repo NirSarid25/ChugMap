@@ -36,6 +36,16 @@ function FunnelIcon() {
   )
 }
 
+function GearIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+      <circle cx="11" cy="11" r="3" stroke="currentColor" strokeWidth="1.9"/>
+      <path d="M11 2v1.8M11 18.2V20M2 11h1.8M18.2 11H20M4.64 4.64l1.27 1.27M16.09 16.09l1.27 1.27M17.36 4.64l-1.27 1.27M5.91 16.09l-1.27 1.27"
+            stroke="currentColor" strokeWidth="1.9" strokeLinecap="round"/>
+    </svg>
+  )
+}
+
 export default function App() {
   const [showLanding, setShowLanding]     = useState(true)
   const [lang, setLang]                   = useState(() => localStorage.getItem('chugmap_lang') || 'en')
@@ -156,7 +166,20 @@ export default function App() {
           </h1>
           <p className="text-xs text-white/70 mt-0.5 font-medium">{t.appTagline}</p>
         </div>
-        <LanguageSwitcher lang={lang} onChange={setLang} dark />
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setActiveTab('settings')}
+            className={`w-9 h-9 rounded-full flex items-center justify-center transition-all active:scale-95 ${
+              activeTab === 'settings'
+                ? 'bg-white text-indigo-600 shadow-sm'
+                : 'bg-white/20 text-white hover:bg-white/30'
+            }`}
+            aria-label={t.tabSettings}
+          >
+            <GearIcon />
+          </button>
+          <LanguageSwitcher lang={lang} onChange={setLang} dark />
+        </div>
       </header>
 
       {/* ── Search tab ─────────────────────────────────────── */}
